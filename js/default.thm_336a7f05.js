@@ -556,6 +556,70 @@ window.skins={};
 		return t;
 	};
 	return RaiseSliderSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/ShortcutRaiseButtonSkin.exml'] = window.ShortcutRaiseButtonSkin = (function (_super) {
+	__extends(ShortcutRaiseButtonSkin, _super);
+	function ShortcutRaiseButtonSkin() {
+		_super.call(this);
+		this.skinParts = ["icon","amountLabel","labelDisplay"];
+		
+		this.height = 96;
+		this.width = 84;
+		this.elementsContent = [this.icon_i(),this.amountLabel_i(),this.labelDisplay_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+					new eui.SetProperty("icon","source","bg_shortcut_raise_disabled_png")
+				])
+			,
+			new eui.State ("disabled",
+				[
+					new eui.SetProperty("icon","source","bg_shortcut_raise_disabled_png")
+				])
+		];
+		
+		eui.Binding.$bindProperties(this, ["hostComponent.amount"],[0],this.amountLabel,"text");
+		eui.Binding.$bindProperties(this, ["hostComponent.label"],[0],this.labelDisplay,"text");
+	}
+	var _proto = ShortcutRaiseButtonSkin.prototype;
+
+	_proto.icon_i = function () {
+		var t = new eui.Image();
+		this.icon = t;
+		t.height = 76;
+		t.source = "bg_shortcut_raise_png";
+		t.width = 84;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.amountLabel_i = function () {
+		var t = new eui.Label();
+		this.amountLabel = t;
+		t.horizontalCenter = 0;
+		t.size = 20;
+		t.textAlign = "center";
+		t.width = 84;
+		t.y = 77;
+		return t;
+	};
+	_proto.labelDisplay_i = function () {
+		var t = new eui.Label();
+		this.labelDisplay = t;
+		t.height = 76;
+		t.horizontalCenter = 0;
+		t.size = 20;
+		t.textAlign = "center";
+		t.textColor = 0x4a330a;
+		t.verticalAlign = "middle";
+		t.width = 40;
+		t.y = 0;
+		return t;
+	};
+	return ShortcutRaiseButtonSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/AutonCheckOrFoldButtonSkin.exml'] = window.AutonCheckOrFoldButtonSkin = (function (_super) {
 	__extends(AutonCheckOrFoldButtonSkin, _super);
 	function AutonCheckOrFoldButtonSkin() {
@@ -930,7 +994,7 @@ window.skins={};
 
 	function PlayGameButtonGroupSkin() {
 		_super.call(this);
-		this.skinParts = ["foldButton","checkButton","callButton","raiseButton","allInButton","quickRaiseButton","switchGroup","autoCheckOrFoldButton","autoCheckButton","autoGroup"];
+		this.skinParts = ["foldButton","checkButton","callButton","raiseButton","allInButton","quickRaiseButton","firstShortcutButton","secondShortcutButton","thirdShortcutButton","fourthShortcutButton","shortcutGroup","switchGroup","autoCheckOrFoldButton","autoCheckButton","autoGroup"];
 		
 		this.height = 320;
 		this.width = 750;
@@ -941,11 +1005,11 @@ window.skins={};
 	_proto.switchGroup_i = function () {
 		var t = new eui.Group();
 		this.switchGroup = t;
-		t.percentHeight = 100;
-		t.percentWidth = 100;
-		t.x = 0;
-		t.y = 0;
-		t.elementsContent = [this.foldButton_i(),this.checkButton_i(),this.callButton_i(),this.raiseButton_i(),this.allInButton_i(),this.quickRaiseButton_i()];
+		t.height = 320;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.width = 750;
+		t.elementsContent = [this.foldButton_i(),this.checkButton_i(),this.callButton_i(),this.raiseButton_i(),this.allInButton_i(),this.quickRaiseButton_i(),this.shortcutGroup_i()];
 		return t;
 	};
 	_proto.foldButton_i = function () {
@@ -1018,13 +1082,89 @@ window.skins={};
 		t.skinName = PlayGameButtonGroupSkin$Skin6;
 		return t;
 	};
+	_proto.shortcutGroup_i = function () {
+		var t = new eui.Group();
+		this.shortcutGroup = t;
+		t.anchorOffsetX = 0;
+		t.height = 96;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.width = 750;
+		t.x = 0;
+		t.y = 0;
+		t.layout = this._HorizontalLayout1_i();
+		t.elementsContent = [this.firstShortcutButton_i(),this.secondShortcutButton_i(),this.thirdShortcutButton_i(),this.fourthShortcutButton_i()];
+		return t;
+	};
+	_proto._HorizontalLayout1_i = function () {
+		var t = new eui.HorizontalLayout();
+		t.gap = 30;
+		t.horizontalAlign = "center";
+		return t;
+	};
+	_proto.firstShortcutButton_i = function () {
+		var t = new ShortcutRaiseButton();
+		this.firstShortcutButton = t;
+		t.amount = "1000";
+		t.height = 96;
+		t.label = "1/3大盲";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ShortcutRaiseButtonSkin";
+		t.width = 84;
+		t.x = 445;
+		t.y = 0;
+		return t;
+	};
+	_proto.secondShortcutButton_i = function () {
+		var t = new ShortcutRaiseButton();
+		this.secondShortcutButton = t;
+		t.amount = "1000";
+		t.height = 96;
+		t.label = "1/2大盲";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ShortcutRaiseButtonSkin";
+		t.width = 84;
+		t.x = 60;
+		t.y = -1;
+		return t;
+	};
+	_proto.thirdShortcutButton_i = function () {
+		var t = new ShortcutRaiseButton();
+		this.thirdShortcutButton = t;
+		t.amount = "1000";
+		t.height = 96;
+		t.label = "2/3大盲";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ShortcutRaiseButtonSkin";
+		t.width = 84;
+		t.x = 608;
+		t.y = 0;
+		return t;
+	};
+	_proto.fourthShortcutButton_i = function () {
+		var t = new ShortcutRaiseButton();
+		this.fourthShortcutButton = t;
+		t.amount = "1000";
+		t.height = 96;
+		t.label = "一倍底池";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ShortcutRaiseButtonSkin";
+		t.width = 84;
+		t.x = 182;
+		t.y = -1;
+		return t;
+	};
 	_proto.autoGroup_i = function () {
 		var t = new eui.Group();
 		this.autoGroup = t;
-		t.percentHeight = 100;
-		t.percentWidth = 100;
-		t.x = 0;
-		t.y = 0;
+		t.height = 320;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.width = 750;
 		t.elementsContent = [this.autoCheckOrFoldButton_i(),this.autoCheckButton_i()];
 		return t;
 	};
@@ -1317,6 +1457,67 @@ window.skins={};
 		return t;
 	};
 	return BottomToolbarSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/DebugView/DebugViewSkin.exml'] = window.DebugViewSkin = (function (_super) {
+	__extends(DebugViewSkin, _super);
+	function DebugViewSkin() {
+		_super.call(this);
+		this.skinParts = ["logList","logScroller","domainLabel"];
+		
+		this.height = 600;
+		this.width = 600;
+		this.elementsContent = [this._Rect1_i(),this.logScroller_i(),this.domainLabel_i()];
+	}
+	var _proto = DebugViewSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillAlpha = 0.7;
+		t.height = 600;
+		t.width = 600;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.logScroller_i = function () {
+		var t = new eui.Scroller();
+		this.logScroller = t;
+		t.anchorOffsetX = 0;
+		t.anchorOffsetY = 0;
+		t.height = 560;
+		t.width = 600;
+		t.x = 0;
+		t.y = 40;
+		t.viewport = this.logList_i();
+		return t;
+	};
+	_proto.logList_i = function () {
+		var t = new eui.List();
+		this.logList = t;
+		t.height = 560;
+		t.width = 600;
+		t.layout = this._VerticalLayout1_i();
+		return t;
+	};
+	_proto._VerticalLayout1_i = function () {
+		var t = new eui.VerticalLayout();
+		t.gap = 20;
+		t.paddingBottom = 0;
+		t.paddingLeft = 20;
+		t.paddingRight = 20;
+		t.paddingTop = 0;
+		return t;
+	};
+	_proto.domainLabel_i = function () {
+		var t = new eui.Label();
+		this.domainLabel = t;
+		t.text = "Label";
+		t.textColor = 0xf7ea11;
+		t.width = 560;
+		t.x = 20;
+		t.y = 5;
+		return t;
+	};
+	return DebugViewSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/GameSkin.exml'] = window.GameSkin = (function (_super) {
 	__extends(GameSkin, _super);
 	var GameSkin$Skin11 = 	(function (_super) {
@@ -1546,11 +1747,11 @@ window.skins={};
 
 	function GameSkin() {
 		_super.call(this);
-		this.skinParts = ["mainPotLabel","pinLabel","creatorLabel","blindLabel","talkButton","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","menuButton","playGameButtonGroup","raiseSelector","quickRaiser","bottomToolbar","reviewboardButton","group","cardPattern"];
+		this.skinParts = ["mainPotLabel","pinLabel","creatorLabel","blindLabel","talkButton","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","menuButton","playGameButtonGroup","raiseSelector","quickRaiser","bottomToolbar","reviewboardButton","infoLabel","promptLabel","group","debugView","cardPattern"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this._Image1_i(),this.group_i(),this.cardPattern_i()];
+		this.elementsContent = [this._Image1_i(),this.group_i(),this.debugView_i(),this.cardPattern_i()];
 	}
 	var _proto = GameSkin.prototype;
 
@@ -1570,7 +1771,7 @@ window.skins={};
 		t.width = 750;
 		t.x = 0;
 		t.y = 0;
-		t.elementsContent = [this.mainPotLabel_i(),this.pinLabel_i(),this.creatorLabel_i(),this.blindLabel_i(),this.talkButton_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.menuButton_i(),this.playGameButtonGroup_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.bottomToolbar_i(),this.reviewboardButton_i()];
+		t.elementsContent = [this.mainPotLabel_i(),this.pinLabel_i(),this.creatorLabel_i(),this.blindLabel_i(),this.talkButton_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.menuButton_i(),this.playGameButtonGroup_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.bottomToolbar_i(),this.reviewboardButton_i(),this.infoLabel_i(),this.promptLabel_i()];
 		return t;
 	};
 	_proto.mainPotLabel_i = function () {
@@ -1602,13 +1803,15 @@ window.skins={};
 	_proto.creatorLabel_i = function () {
 		var t = new eui.Label();
 		this.creatorLabel = t;
+		t.height = 33;
 		t.horizontalCenter = 0;
 		t.size = 22;
 		t.text = "";
 		t.textAlign = "center";
 		t.textColor = 0x034d45;
+		t.verticalAlign = "middle";
 		t.width = 400;
-		t.y = 810;
+		t.y = 800;
 		return t;
 	};
 	_proto.blindLabel_i = function () {
@@ -1719,7 +1922,7 @@ window.skins={};
 	_proto.playGameButtonGroup_i = function () {
 		var t = new PlayGameButtonGroup();
 		this.playGameButtonGroup = t;
-		t.height = 260;
+		t.height = 320;
 		t.skinName = "PlayGameButtonGroupSkin";
 		t.visible = false;
 		t.width = 750;
@@ -1763,6 +1966,39 @@ window.skins={};
 		t.x = 644;
 		t.y = 30;
 		t.skinName = GameSkin$Skin15;
+		return t;
+	};
+	_proto.infoLabel_i = function () {
+		var t = new eui.Label();
+		this.infoLabel = t;
+		t.bottom = 20;
+		t.height = 60;
+		t.horizontalCenter = 0;
+		t.text = "DebugLabel";
+		t.textAlign = "center";
+		t.visible = false;
+		t.width = 450;
+		return t;
+	};
+	_proto.promptLabel_i = function () {
+		var t = new eui.Label();
+		this.promptLabel = t;
+		t.size = 20;
+		t.text = "等待下一局开始";
+		t.visible = false;
+		t.x = 376;
+		t.y = 1153.5;
+		return t;
+	};
+	_proto.debugView_i = function () {
+		var t = new DebugView();
+		this.debugView = t;
+		t.height = 600;
+		t.horizontalCenter = 0;
+		t.skinName = "DebugViewSkin";
+		t.visible = false;
+		t.width = 600;
+		t.y = 0;
 		return t;
 	};
 	_proto.cardPattern_i = function () {
@@ -3060,11 +3296,11 @@ window.skins={};
 	__extends(BuyInSkin, _super);
 	function BuyInSkin() {
 		_super.call(this);
-		this.skinParts = ["background","scoreLabel","scoreSlider","confirmButton","minBuyLabel","balanceLabel"];
+		this.skinParts = ["background","scoreLabel","scoreSlider","confirmButton","minBuyLabel","balanceLabel","group"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this.background_i(),this._Group1_i()];
+		this.elementsContent = [this.background_i(),this.group_i()];
 	}
 	var _proto = BuyInSkin.prototype;
 
@@ -3078,8 +3314,9 @@ window.skins={};
 		t.y = 0;
 		return t;
 	};
-	_proto._Group1_i = function () {
+	_proto.group_i = function () {
 		var t = new eui.Group();
+		this.group = t;
 		t.height = 400;
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
@@ -3923,11 +4160,11 @@ window.skins={};
 	__extends(PlayerDetailSkin, _super);
 	function PlayerDetailSkin() {
 		_super.call(this);
-		this.skinParts = ["background","avatarImage","nicknameLabel","bioLabel","statisticList","cardList"];
+		this.skinParts = ["background","avatarImage","nicknameLabel","bioLabel","statisticList","cardList","group"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this.background_i(),this._Group1_i()];
+		this.elementsContent = [this.background_i(),this.group_i()];
 	}
 	var _proto = PlayerDetailSkin.prototype;
 
@@ -3941,8 +4178,9 @@ window.skins={};
 		t.y = 0;
 		return t;
 	};
-	_proto._Group1_i = function () {
+	_proto.group_i = function () {
 		var t = new eui.Group();
+		this.group = t;
 		t.height = 970;
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
@@ -3997,10 +4235,11 @@ window.skins={};
 	_proto.bioLabel_i = function () {
 		var t = new eui.Label();
 		this.bioLabel = t;
+		t.height = 44;
 		t.size = 22;
-		t.text = "签名: lalalalalalalalalalla";
+		t.text = "签名:";
 		t.textColor = 0xb8c2c0;
-		t.visible = false;
+		t.width = 300;
 		t.x = 230;
 		t.y = 130;
 		return t;
@@ -5904,58 +6143,13 @@ window.skins={};
 		return LaunchSkin$Skin22;
 	})(eui.Skin);
 
-	var LaunchSkin$Skin23 = 	(function (_super) {
-		__extends(LaunchSkin$Skin23, _super);
-		function LaunchSkin$Skin23() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-						new eui.SetProperty("_Image1","percentWidth",90),
-						new eui.SetProperty("_Image1","percentHeight",90)
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = LaunchSkin$Skin23.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			this._Image1 = t;
-			t.percentHeight = 100;
-			t.horizontalCenter = 0;
-			t.source = "btn_close_png";
-			t.verticalCenter = 0;
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return LaunchSkin$Skin23;
-	})(eui.Skin);
-
 	function LaunchSkin() {
 		_super.call(this);
-		this.skinParts = ["loginButton","visitorButton","buttonGroup","closeButton","displayLabel"];
+		this.skinParts = ["loginButton","visitorButton","buttonGroup","displayLabel"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this._Image1_i(),this.buttonGroup_i(),this.closeButton_i(),this.displayLabel_i()];
+		this.elementsContent = [this._Image1_i(),this.buttonGroup_i(),this.displayLabel_i()];
 	}
 	var _proto = LaunchSkin.prototype;
 
@@ -6002,16 +6196,6 @@ window.skins={};
 		t.x = 93;
 		t.y = 125.29999999999995;
 		t.skinName = LaunchSkin$Skin22;
-		return t;
-	};
-	_proto.closeButton_i = function () {
-		var t = new eui.Button();
-		this.closeButton = t;
-		t.label = "";
-		t.visible = false;
-		t.x = 650;
-		t.y = 40;
-		t.skinName = LaunchSkin$Skin23;
 		return t;
 	};
 	_proto.displayLabel_i = function () {
