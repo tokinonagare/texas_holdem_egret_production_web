@@ -1782,7 +1782,7 @@ window.skins={};
 
 	function GameSkin() {
 		_super.call(this);
-		this.skinParts = ["mainPotLabel","pinLabel","creatorLabel","blindLabel","countdownLabel","talkButton","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","menuButton","playGameButtonGroup","raiseSelector","quickRaiser","bottomToolbar","reviewboardButton","infoLabel","promptLabel","messageAlarm","group","debugView","cardPattern"];
+		this.skinParts = ["mainPotLabel","pinLabel","creatorLabel","blindLabel","countdownLabel","talkButton","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","menuButton","playGameButtonGroup","raiseSelector","quickRaiser","bottomToolbar","reviewboardButton","infoLabel","promptLabel","messageAlarm","wonCardLabel","group","debugView","cardPattern"];
 		
 		this.height = 1334;
 		this.width = 750;
@@ -1806,7 +1806,7 @@ window.skins={};
 		t.width = 750;
 		t.x = 0;
 		t.y = 0;
-		t.elementsContent = [this.mainPotLabel_i(),this.pinLabel_i(),this.creatorLabel_i(),this.blindLabel_i(),this.countdownLabel_i(),this.talkButton_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.menuButton_i(),this.playGameButtonGroup_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.bottomToolbar_i(),this.reviewboardButton_i(),this.infoLabel_i(),this.promptLabel_i(),this.messageAlarm_i()];
+		t.elementsContent = [this.mainPotLabel_i(),this.pinLabel_i(),this.creatorLabel_i(),this.blindLabel_i(),this.countdownLabel_i(),this.talkButton_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.menuButton_i(),this.playGameButtonGroup_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.bottomToolbar_i(),this.reviewboardButton_i(),this.infoLabel_i(),this.promptLabel_i(),this.messageAlarm_i(),this.wonCardLabel_i()];
 		return t;
 	};
 	_proto.mainPotLabel_i = function () {
@@ -2048,6 +2048,19 @@ window.skins={};
 		t.width = 43;
 		t.x = 578.5;
 		t.y = 33;
+		return t;
+	};
+	_proto.wonCardLabel_i = function () {
+		var t = new eui.BitmapLabel();
+		this.wonCardLabel = t;
+		t.font = "card_type_fnt";
+		t.height = 30;
+		t.horizontalCenter = 0;
+		t.text = "";
+		t.textAlign = "center";
+		t.visible = false;
+		t.width = 200;
+		t.y = 550;
 		return t;
 	};
 	_proto.debugView_i = function () {
@@ -4924,161 +4937,14 @@ window.skins={};
 	__extends(PlayerSkin, _super);
 	function PlayerSkin() {
 		_super.call(this);
-		this.skinParts = ["winnerAnimation","avatarImage","nameLabel","scoreLabel","countdownCover","timerLabel","progressBorder","winnerBorder","cover"];
+		this.skinParts = ["avatarImage","nameLabel","scoreLabel","countdownCover","cover","timerLabel","progressBorder"];
 		
 		this.height = 167;
 		this.width = 100;
-		this.winnerAnimation_i();
-		this.elementsContent = [this.avatarImage_i(),this.nameLabel_i(),this._Group1_i(),this.countdownCover_i(),this.timerLabel_i(),this.progressBorder_i(),this.winnerBorder_i(),this.cover_i()];
-		
-		eui.Binding.$bindProperties(this, ["winnerBorder"],[0],this._TweenItem1,"target");
-		eui.Binding.$bindProperties(this, [1],[],this._Object1,"alpha");
-		eui.Binding.$bindProperties(this, [0],[],this._Object2,"alpha");
-		eui.Binding.$bindProperties(this, [1],[],this._Object3,"alpha");
-		eui.Binding.$bindProperties(this, [0],[],this._Object4,"alpha");
-		eui.Binding.$bindProperties(this, [1],[],this._Object5,"alpha");
-		eui.Binding.$bindProperties(this, [0],[],this._Object6,"alpha");
-		eui.Binding.$bindProperties(this, [1],[],this._Object7,"alpha");
-		eui.Binding.$bindProperties(this, [0],[],this._Object8,"alpha");
+		this.elementsContent = [this.avatarImage_i(),this.nameLabel_i(),this._Group1_i(),this.countdownCover_i(),this.cover_i(),this.timerLabel_i(),this.progressBorder_i()];
 	}
 	var _proto = PlayerSkin.prototype;
 
-	_proto.winnerAnimation_i = function () {
-		var t = new egret.tween.TweenGroup();
-		this.winnerAnimation = t;
-		t.items = [this._TweenItem1_i()];
-		return t;
-	};
-	_proto._TweenItem1_i = function () {
-		var t = new egret.tween.TweenItem();
-		this._TweenItem1 = t;
-		t.paths = [this._Set1_i(),this._Wait1_i(),this._Set2_i(),this._Wait2_i(),this._Set3_i(),this._Wait3_i(),this._Set4_i(),this._Wait4_i(),this._Set5_i(),this._Wait5_i(),this._Set6_i(),this._Wait6_i(),this._Set7_i(),this._Wait7_i(),this._Set8_i(),this._Wait8_i(),this._Set9_i()];
-		return t;
-	};
-	_proto._Set1_i = function () {
-		var t = new egret.tween.Set();
-		return t;
-	};
-	_proto._Wait1_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set2_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object1_i();
-		return t;
-	};
-	_proto._Object1_i = function () {
-		var t = {};
-		this._Object1 = t;
-		return t;
-	};
-	_proto._Wait2_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set3_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object2_i();
-		return t;
-	};
-	_proto._Object2_i = function () {
-		var t = {};
-		this._Object2 = t;
-		return t;
-	};
-	_proto._Wait3_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set4_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object3_i();
-		return t;
-	};
-	_proto._Object3_i = function () {
-		var t = {};
-		this._Object3 = t;
-		return t;
-	};
-	_proto._Wait4_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set5_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object4_i();
-		return t;
-	};
-	_proto._Object4_i = function () {
-		var t = {};
-		this._Object4 = t;
-		return t;
-	};
-	_proto._Wait5_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set6_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object5_i();
-		return t;
-	};
-	_proto._Object5_i = function () {
-		var t = {};
-		this._Object5 = t;
-		return t;
-	};
-	_proto._Wait6_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set7_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object6_i();
-		return t;
-	};
-	_proto._Object6_i = function () {
-		var t = {};
-		this._Object6 = t;
-		return t;
-	};
-	_proto._Wait7_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set8_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object7_i();
-		return t;
-	};
-	_proto._Object7_i = function () {
-		var t = {};
-		this._Object7 = t;
-		return t;
-	};
-	_proto._Wait8_i = function () {
-		var t = new egret.tween.Wait();
-		t.duration = 250;
-		return t;
-	};
-	_proto._Set9_i = function () {
-		var t = new egret.tween.Set();
-		t.props = this._Object8_i();
-		return t;
-	};
-	_proto._Object8_i = function () {
-		var t = {};
-		this._Object8 = t;
-		return t;
-	};
 	_proto.avatarImage_i = function () {
 		var t = new eui.Image();
 		this.avatarImage = t;
@@ -5159,6 +5025,21 @@ window.skins={};
 		t.y = 31;
 		return t;
 	};
+	_proto.cover_i = function () {
+		var t = new eui.Rect();
+		this.cover = t;
+		t.anchorOffsetX = 0;
+		t.anchorOffsetY = 0;
+		t.ellipseHeight = 10;
+		t.ellipseWidth = 10;
+		t.fillAlpha = 0.5;
+		t.height = 100;
+		t.visible = false;
+		t.width = 100;
+		t.x = 0;
+		t.y = 31;
+		return t;
+	};
 	_proto.timerLabel_i = function () {
 		var t = new eui.Label();
 		this.timerLabel = t;
@@ -5178,33 +5059,6 @@ window.skins={};
 		this.progressBorder = t;
 		t.height = 100;
 		t.source = "image_border_yellow_png";
-		t.visible = false;
-		t.width = 100;
-		t.x = 0;
-		t.y = 31;
-		return t;
-	};
-	_proto.winnerBorder_i = function () {
-		var t = new eui.Image();
-		this.winnerBorder = t;
-		t.alpha = 0;
-		t.height = 100;
-		t.source = "image_border_yellow_png";
-		t.visible = false;
-		t.width = 100;
-		t.x = 0;
-		t.y = 31;
-		return t;
-	};
-	_proto.cover_i = function () {
-		var t = new eui.Rect();
-		this.cover = t;
-		t.anchorOffsetX = 0;
-		t.anchorOffsetY = 0;
-		t.ellipseHeight = 10;
-		t.ellipseWidth = 10;
-		t.fillAlpha = 0.5;
-		t.height = 100;
 		t.visible = false;
 		t.width = 100;
 		t.x = 0;
