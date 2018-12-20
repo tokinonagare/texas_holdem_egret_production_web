@@ -2903,10 +2903,17 @@ window.skins={};
 		
 		this.height = 177;
 		this.width = 620;
-		this.elementsContent = [this.pageSlider_i(),this._Group1_i()];
+		this.elementsContent = [this._Rect1_i(),this.pageSlider_i(),this._Group1_i()];
 	}
 	var _proto = ReviewboardFooterSkin.prototype;
 
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillColor = 0x0d3a37;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		return t;
+	};
 	_proto.pageSlider_i = function () {
 		var t = new eui.HSlider();
 		this.pageSlider = t;
@@ -2970,11 +2977,11 @@ window.skins={};
 	__extends(ReviewboardSkin, _super);
 	function ReviewboardSkin() {
 		_super.call(this);
-		this.skinParts = ["loadingLabel","header","settlementHistoryView","gameHistoryView","contentViewStack","contentGroup","contentTabbar","tabbarGroup","footer"];
+		this.skinParts = ["loadingLabel","header","settlementHistoryView","gameHistoryView","contentViewStack","contentGroup","footer","contentTabbar","tabbarGroup"];
 		
 		this.height = 1334;
 		this.width = 620;
-		this.elementsContent = [this._Rect1_i(),this._Rect2_i(),this.loadingLabel_i(),this.contentGroup_i(),this.tabbarGroup_i(),this.footer_i()];
+		this.elementsContent = [this._Rect1_i(),this.loadingLabel_i(),this.contentGroup_i(),this.footer_i(),this.tabbarGroup_i()];
 	}
 	var _proto = ReviewboardSkin.prototype;
 
@@ -2984,15 +2991,6 @@ window.skins={};
 		t.percentHeight = 100;
 		t.horizontalCenter = 0;
 		t.top = 0;
-		t.percentWidth = 100;
-		return t;
-	};
-	_proto._Rect2_i = function () {
-		var t = new eui.Rect();
-		t.bottom = 0;
-		t.fillColor = 0x0d3a37;
-		t.height = 177;
-		t.horizontalCenter = 0;
 		t.percentWidth = 100;
 		return t;
 	};
@@ -3010,6 +3008,8 @@ window.skins={};
 		var t = new eui.Group();
 		this.contentGroup = t;
 		t.height = 1104;
+		t.scaleX = 1;
+		t.scaleY = 1;
 		t.width = 620;
 		t.x = 0;
 		t.y = 0;
@@ -3075,10 +3075,21 @@ window.skins={};
 		t.y = 0;
 		return t;
 	};
+	_proto.footer_i = function () {
+		var t = new ReviewboardFooter();
+		this.footer = t;
+		t.bottom = 0;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ReviewboardFooterSkin";
+		t.x = 0;
+		t.y = 1157;
+		return t;
+	};
 	_proto.tabbarGroup_i = function () {
 		var t = new eui.Group();
 		this.tabbarGroup = t;
-		t.bottom = 177;
 		t.height = 53;
 		t.horizontalCenter = 0;
 		t.scaleX = 1;
@@ -3086,13 +3097,14 @@ window.skins={};
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 1104;
-		t.elementsContent = [this._Rect3_i(),this.contentTabbar_i()];
+		t.elementsContent = [this._Rect2_i(),this.contentTabbar_i()];
 		return t;
 	};
-	_proto._Rect3_i = function () {
+	_proto._Rect2_i = function () {
 		var t = new eui.Rect();
 		t.fillColor = 0x021C1A;
 		t.percentHeight = 100;
+		t.visible = false;
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
@@ -3105,18 +3117,6 @@ window.skins={};
 		t.percentHeight = 100;
 		t.percentWidth = 100;
 		t.x = 0;
-		return t;
-	};
-	_proto.footer_i = function () {
-		var t = new ReviewboardFooter();
-		this.footer = t;
-		t.bottom = 0;
-		t.horizontalCenter = 0;
-		t.scaleX = 1;
-		t.scaleY = 1;
-		t.skinName = "ReviewboardFooterSkin";
-		t.x = 0;
-		t.y = 1157;
 		return t;
 	};
 	return ReviewboardSkin;
@@ -3698,7 +3698,7 @@ window.skins={};
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
 		t.width = 536;
-		t.elementsContent = [this._Rect1_i(),this._Label1_i(),this._Image1_i(),this.scoreLabel_i(),this.scoreSlider_i(),this.confirmButton_i(),this.minBuyLabel_i(),this.balanceLabel_i()];
+		t.elementsContent = [this._Rect1_i(),this._Label1_i(),this._Image1_i(),this.scoreLabel_i(),this.scoreSlider_i(),this.confirmButton_i(),this.minBuyLabel_i(),this.balanceLabel_i(),this._Label2_i()];
 		return t;
 	};
 	_proto._Rect1_i = function () {
@@ -3735,7 +3735,7 @@ window.skins={};
 		t.scaleY = 1;
 		t.source = "icon_buy_in_chip_png";
 		t.width = 36;
-		t.y = 100;
+		t.y = 110;
 		return t;
 	};
 	_proto.scoreLabel_i = function () {
@@ -3745,7 +3745,7 @@ window.skins={};
 		t.text = "0";
 		t.width = 200;
 		t.x = 250;
-		t.y = 97;
+		t.y = 107;
 		return t;
 	};
 	_proto.scoreSlider_i = function () {
@@ -3793,6 +3793,16 @@ window.skins={};
 		t.textColor = 0x596e6d;
 		t.width = 400;
 		t.y = 230;
+		return t;
+	};
+	_proto._Label2_i = function () {
+		var t = new eui.Label();
+		t.horizontalCenter = 0;
+		t.size = 15;
+		t.text = "温馨提示: 游戏途中成功申请带入, 将在下一局游戏开始后到账";
+		t.textAlign = "center";
+		t.width = 550;
+		t.y = 75;
 		return t;
 	};
 	return BuyInSkin;
@@ -4390,7 +4400,7 @@ window.skins={};
 	_proto.menuList_i = function () {
 		var t = new eui.List();
 		this.menuList = t;
-		t.height = 356;
+		t.height = 600;
 		t.itemRendererSkinName = MenuItemSkin;
 		t.scaleX = 1;
 		t.scaleY = 1;
@@ -4408,7 +4418,7 @@ window.skins={};
 	};
 	_proto._ArrayCollection1_i = function () {
 		var t = new eui.ArrayCollection();
-		t.source = [this._Object1_i(),this._Object2_i(),this._Object3_i()];
+		t.source = [this._Object1_i(),this._Object2_i(),this._Object3_i(),this._Object4_i()];
 		return t;
 	};
 	_proto._Object1_i = function () {
@@ -4419,11 +4429,17 @@ window.skins={};
 	};
 	_proto._Object2_i = function () {
 		var t = {};
-		t.item = "站起围观";
+		t.item = "补充带入";
 		t.showArrow = "";
 		return t;
 	};
 	_proto._Object3_i = function () {
+		var t = {};
+		t.item = "站起围观";
+		t.showArrow = "";
+		return t;
+	};
+	_proto._Object4_i = function () {
 		var t = {};
 		t.item = "退出牌局";
 		t.showArrow = "";
