@@ -16,8 +16,8 @@ window.skins={};
 		_super.call(this);
 		this.skinParts = ["labelDisplay"];
 		
-		this.height = 88;
-		this.width = 160;
+		this.height = 89;
+		this.width = 110;
 		this.elementsContent = [this._Rect1_i(),this.labelDisplay_i()];
 		this.states = [
 			new eui.State ("up",
@@ -43,8 +43,8 @@ window.skins={};
 		t.ellipseHeight = 20;
 		t.ellipseWidth = 20;
 		t.fillColor = 0x1cbf69;
-		t.height = 88;
-		t.width = 160;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
 		return t;
@@ -53,7 +53,7 @@ window.skins={};
 		var t = new eui.Label();
 		this.labelDisplay = t;
 		t.horizontalCenter = 0;
-		t.size = 38;
+		t.size = 32;
 		t.verticalCenter = 0;
 		return t;
 	};
@@ -62,11 +62,11 @@ window.skins={};
 	__extends(ChatTextInputSkin, _super);
 	function ChatTextInputSkin() {
 		_super.call(this);
-		this.skinParts = ["textDisplay","promptDisplay"];
+		this.skinParts = ["textDisplay","promptDisplay","amountLabel"];
 		
 		this.height = 88;
 		this.width = 400;
-		this.elementsContent = [this._Rect1_i(),this.textDisplay_i()];
+		this.elementsContent = [this._Rect1_i(),this.textDisplay_i(),this.amountLabel_i()];
 		this.promptDisplay_i();
 		
 		this.states = [
@@ -80,12 +80,12 @@ window.skins={};
 			,
 			new eui.State ("normalWithPrompt",
 				[
-					new eui.AddItems("promptDisplay","",1,"")
+					new eui.AddItems("promptDisplay","",2,"amountLabel")
 				])
 			,
 			new eui.State ("disabledWithPrompt",
 				[
-					new eui.AddItems("promptDisplay","",1,"")
+					new eui.AddItems("promptDisplay","",2,"amountLabel")
 				])
 		];
 	}
@@ -95,7 +95,7 @@ window.skins={};
 		var t = new eui.Rect();
 		t.ellipseHeight = 20;
 		t.ellipseWidth = 20;
-		t.fillColor = 0xffffff;
+		t.fillColor = 0x638a97;
 		t.percentHeight = 100;
 		t.percentWidth = 100;
 		t.x = 0;
@@ -109,28 +109,38 @@ window.skins={};
 		t.anchorOffsetY = 0;
 		t.bold = true;
 		t.percentHeight = 80;
-		t.horizontalCenter = "0";
+		t.left = "20";
 		t.text = "";
 		t.textAlign = "left";
-		t.textColor = 0x000000;
+		t.textColor = 0xffffff;
 		t.verticalAlign = "middle";
 		t.verticalCenter = "0";
-		t.percentWidth = 90;
+		t.percentWidth = 80;
 		return t;
 	};
 	_proto.promptDisplay_i = function () {
 		var t = new eui.Label();
 		this.promptDisplay = t;
 		t.percentHeight = 80;
-		t.horizontalCenter = 0;
+		t.left = 20;
 		t.strokeColor = 0xf72222;
 		t.text = "";
-		t.textAlign = "center";
-		t.textColor = 0xa9a9a9;
+		t.textAlign = "left";
+		t.textColor = 0x9dbac4;
 		t.touchEnabled = false;
 		t.verticalAlign = "middle";
 		t.verticalCenter = 0;
-		t.percentWidth = 90;
+		t.percentWidth = 80;
+		return t;
+	};
+	_proto.amountLabel_i = function () {
+		var t = new eui.Label();
+		this.amountLabel = t;
+		t.right = 15;
+		t.size = 24;
+		t.text = "0/0";
+		t.textColor = 0x9dbac4;
+		t.verticalCenter = 0;
 		return t;
 	};
 	return ChatTextInputSkin;
@@ -1525,6 +1535,8 @@ window.skins={};
 				,
 				new eui.State ("down",
 					[
+						new eui.SetProperty("_Image1","percentWidth",90),
+						new eui.SetProperty("_Image1","percentHeight",90)
 					])
 				,
 				new eui.State ("disabled",
@@ -1536,8 +1548,11 @@ window.skins={};
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
+			this._Image1 = t;
 			t.percentHeight = 100;
+			t.horizontalCenter = 0;
 			t.source = "btn_game_record@2x_png";
+			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
 		};
@@ -1604,7 +1619,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "icon_talk_png";
+			t.source = "icon_microphone_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -1649,7 +1664,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "icon_microphone_png";
+			t.source = "btn_room_start_game_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -1694,7 +1709,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "btn_room_start_game_png";
+			t.source = "icon_hand_notes@2x_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -1739,7 +1754,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "icon_hand_notes@2x_png";
+			t.source = "btn_game_dropdown_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -1784,7 +1799,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "btn_game_dropdown_png";
+			t.source = "icon_talk_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -1801,11 +1816,11 @@ window.skins={};
 
 	function GameSkin() {
 		_super.call(this);
-		this.skinParts = ["mainPotLabel","creatorLabel","pinLabel","blindLabel","countdownLabel","roomInfoGroup","talkButton","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","playGameButtonGroup","infoLabel","promptLabel","wonCardLabel","group","raiseSelector","quickRaiser","reviewboardButton","messageAlarm","menuButton","debugView","bottomToolbar","cardPattern"];
+		this.skinParts = ["mainPotLabel","creatorLabel","pinLabel","blindLabel","countdownLabel","roomInfoGroup","microphoneButton","communityCardList","startGameButton","cardTypeLabel","potsList","playGameButtonGroup","infoLabel","promptLabel","wonCardLabel","group","raiseSelector","quickRaiser","reviewboardButton","messageAlarm","menuButton","debugView","bottomToolbar","chatButton","cardPattern"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.group_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.reviewboardButton_i(),this.messageAlarm_i(),this.menuButton_i(),this.debugView_i(),this.bottomToolbar_i(),this.cardPattern_i()];
+		this.elementsContent = [this._Image1_i(),this._Image2_i(),this.group_i(),this.raiseSelector_i(),this.quickRaiser_i(),this.reviewboardButton_i(),this.messageAlarm_i(),this.menuButton_i(),this.debugView_i(),this.bottomToolbar_i(),this.chatButton_i(),this.cardPattern_i()];
 	}
 	var _proto = GameSkin.prototype;
 
@@ -1834,7 +1849,7 @@ window.skins={};
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
 		t.width = 750;
-		t.elementsContent = [this.mainPotLabel_i(),this.roomInfoGroup_i(),this.talkButton_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.playGameButtonGroup_i(),this.infoLabel_i(),this.promptLabel_i(),this.wonCardLabel_i()];
+		t.elementsContent = [this.mainPotLabel_i(),this.roomInfoGroup_i(),this.microphoneButton_i(),this.communityCardList_i(),this.startGameButton_i(),this.cardTypeLabel_i(),this.potsList_i(),this.playGameButtonGroup_i(),this.infoLabel_i(),this.promptLabel_i(),this.wonCardLabel_i()];
 		return t;
 	};
 	_proto.mainPotLabel_i = function () {
@@ -1856,6 +1871,8 @@ window.skins={};
 		this.roomInfoGroup = t;
 		t.height = 120;
 		t.horizontalCenter = 0;
+		t.touchChildren = true;
+		t.touchThrough = true;
 		t.width = 400;
 		t.y = 820;
 		t.elementsContent = [this.creatorLabel_i(),this.pinLabel_i(),this.blindLabel_i(),this.countdownLabel_i()];
@@ -1923,16 +1940,6 @@ window.skins={};
 		t.y = 95;
 		return t;
 	};
-	_proto.talkButton_i = function () {
-		var t = new eui.Button();
-		this.talkButton = t;
-		t.bottom = 20;
-		t.label = "";
-		t.left = 136;
-		t.visible = false;
-		t.skinName = GameSkin$Skin11;
-		return t;
-	};
 	_proto.microphoneButton_i = function () {
 		var t = new eui.Button();
 		this.microphoneButton = t;
@@ -1940,7 +1947,7 @@ window.skins={};
 		t.label = "";
 		t.right = 136;
 		t.visible = false;
-		t.skinName = GameSkin$Skin12;
+		t.skinName = GameSkin$Skin11;
 		return t;
 	};
 	_proto.communityCardList_i = function () {
@@ -1969,7 +1976,7 @@ window.skins={};
 		t.label = "";
 		t.visible = false;
 		t.y = 820;
-		t.skinName = GameSkin$Skin13;
+		t.skinName = GameSkin$Skin12;
 		return t;
 	};
 	_proto.cardTypeLabel_i = function () {
@@ -2082,7 +2089,7 @@ window.skins={};
 		t.width = 68;
 		t.x = 648;
 		t.y = 30;
-		t.skinName = GameSkin$Skin14;
+		t.skinName = GameSkin$Skin13;
 		return t;
 	};
 	_proto.messageAlarm_i = function () {
@@ -2102,7 +2109,7 @@ window.skins={};
 		t.label = "";
 		t.x = 34;
 		t.y = 30;
-		t.skinName = GameSkin$Skin15;
+		t.skinName = GameSkin$Skin14;
 		return t;
 	};
 	_proto.debugView_i = function () {
@@ -2122,6 +2129,15 @@ window.skins={};
 		t.bottom = 30;
 		t.horizontalCenter = 0;
 		t.skinName = "BottomToolbarSkin";
+		return t;
+	};
+	_proto.chatButton_i = function () {
+		var t = new eui.Button();
+		this.chatButton = t;
+		t.bottom = 46;
+		t.label = "";
+		t.x = 635;
+		t.skinName = GameSkin$Skin15;
 		return t;
 	};
 	_proto.cardPattern_i = function () {
@@ -3465,7 +3481,7 @@ window.skins={};
 	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
 		this._Rect1 = t;
-		t.fillColor = 0x072927;
+		t.fillColor = 0x1b1e2d;
 		t.percentHeight = 100;
 		t.percentWidth = 100;
 		t.x = 0;
@@ -3474,7 +3490,7 @@ window.skins={};
 	};
 	_proto._Rect2_i = function () {
 		var t = new eui.Rect();
-		t.fillColor = 0x041716;
+		t.fillColor = 0x50505b;
 		t.height = 2;
 		t.percentWidth = 100;
 		t.x = 0;
@@ -3527,7 +3543,7 @@ window.skins={};
 		var t = new eui.Rect();
 		t.ellipseHeight = 20;
 		t.ellipseWidth = 20;
-		t.fillColor = 0x072927;
+		t.fillColor = 0x1b1e2d;
 		t.height = 400;
 		t.horizontalCenter = 0;
 		t.scaleX = 1;
@@ -3594,6 +3610,7 @@ window.skins={};
 	_proto._Rect2_i = function () {
 		var t = new eui.Rect();
 		t.bottom = 0;
+		t.fillColor = 0x50505b;
 		t.height = 102;
 		t.horizontalCenter = 0;
 		t.width = 2;
@@ -3657,11 +3674,103 @@ window.skins={};
 		return t;
 	};
 	return BuyInSliderSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/BuyInView/ScoreTextInputSkin.exml'] = window.ScoreTextInputSkin = (function (_super) {
+	__extends(ScoreTextInputSkin, _super);
+	var ScoreTextInputSkin$Skin18 = 	(function (_super) {
+		__extends(ScoreTextInputSkin$Skin18, _super);
+		function ScoreTextInputSkin$Skin18() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+						new eui.SetProperty("_Image1","percentWidth",90),
+						new eui.SetProperty("_Image1","percentHeight",90)
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = ScoreTextInputSkin$Skin18.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			this._Image1 = t;
+			t.percentHeight = 100;
+			t.horizontalCenter = 0;
+			t.source = "btn_score_input_delete_png";
+			t.verticalCenter = 0;
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return ScoreTextInputSkin$Skin18;
+	})(eui.Skin);
+
+	function ScoreTextInputSkin() {
+		_super.call(this);
+		this.skinParts = ["textDisplay","deleteButton"];
+		
+		this.height = 50;
+		this.width = 230;
+		this.elementsContent = [this.textDisplay_i(),this._Rect1_i(),this.deleteButton_i()];
+	}
+	var _proto = ScoreTextInputSkin.prototype;
+
+	_proto.textDisplay_i = function () {
+		var t = new eui.EditableText();
+		this.textDisplay = t;
+		t.anchorOffsetX = 0;
+		t.anchorOffsetY = 0;
+		t.height = 40;
+		t.text = "200";
+		t.textAlign = "center";
+		t.verticalAlign = "middle";
+		t.verticalCenter = "0";
+		t.percentWidth = 85;
+		t.x = 0;
+		return t;
+	};
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.bottom = 0;
+		t.fillColor = 0x50505b;
+		t.height = 2;
+		t.horizontalCenter = 0;
+		t.percentWidth = 100;
+		return t;
+	};
+	_proto.deleteButton_i = function () {
+		var t = new eui.Button();
+		this.deleteButton = t;
+		t.height = 32;
+		t.label = "";
+		t.right = 0;
+		t.verticalCenter = 0;
+		t.width = 32;
+		t.skinName = ScoreTextInputSkin$Skin18;
+		return t;
+	};
+	return ScoreTextInputSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/BuyInView/BuyInSkin.exml'] = window.BuyInSkin = (function (_super) {
 	__extends(BuyInSkin, _super);
 	function BuyInSkin() {
 		_super.call(this);
-		this.skinParts = ["background","scoreLabel","scoreSlider","confirmButton","minBuyLabel","balanceLabel","group"];
+		this.skinParts = ["background","scoreSlider","confirmButton","minBuyLabel","balanceLabel","scoreTextInput","group"];
 		
 		this.height = 1334;
 		this.width = 750;
@@ -3682,24 +3791,24 @@ window.skins={};
 	_proto.group_i = function () {
 		var t = new eui.Group();
 		this.group = t;
-		t.height = 400;
+		t.height = 500;
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
 		t.width = 536;
-		t.elementsContent = [this._Rect1_i(),this._Label1_i(),this._Image1_i(),this.scoreLabel_i(),this.scoreSlider_i(),this.confirmButton_i(),this.minBuyLabel_i(),this.balanceLabel_i(),this._Label2_i()];
+		t.elementsContent = [this._Rect1_i(),this._Label1_i(),this.scoreSlider_i(),this.confirmButton_i(),this.minBuyLabel_i(),this.balanceLabel_i(),this._Label2_i(),this.scoreTextInput_i()];
 		return t;
 	};
 	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
 		t.ellipseHeight = 30;
 		t.ellipseWidth = 30;
-		t.fillColor = 0x072927;
-		t.height = 400;
+		t.fillColor = 0x1b1e2d;
+		t.percentHeight = 100;
 		t.horizontalCenter = 0;
 		t.scaleX = 1;
 		t.scaleY = 1;
 		t.verticalCenter = 0;
-		t.width = 536;
+		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
 		return t;
@@ -3712,28 +3821,7 @@ window.skins={};
 		t.size = 36;
 		t.text = "申请带入记分牌";
 		t.textColor = 0xe3e9e9;
-		t.y = 30;
-		return t;
-	};
-	_proto._Image1_i = function () {
-		var t = new eui.Image();
-		t.height = 36;
-		t.left = 194;
-		t.scaleX = 1;
-		t.scaleY = 1;
-		t.source = "icon_buy_in_chip_png";
-		t.width = 36;
-		t.y = 110;
-		return t;
-	};
-	_proto.scoreLabel_i = function () {
-		var t = new eui.Label();
-		this.scoreLabel = t;
-		t.size = 44;
-		t.text = "0";
-		t.width = 200;
-		t.x = 250;
-		t.y = 107;
+		t.y = 50;
 		return t;
 	};
 	_proto.scoreSlider_i = function () {
@@ -3743,7 +3831,7 @@ window.skins={};
 		t.horizontalCenter = 0;
 		t.skinName = "BuyInSliderSkin";
 		t.width = 499;
-		t.y = 170;
+		t.y = 260;
 		return t;
 	};
 	_proto.confirmButton_i = function () {
@@ -3761,13 +3849,13 @@ window.skins={};
 		var t = new eui.Label();
 		this.minBuyLabel = t;
 		t.height = 18;
-		t.size = 18;
-		t.text = "";
+		t.size = 20;
+		t.text = "100000";
 		t.textAlign = "center";
 		t.textColor = 0xfe2a2a;
 		t.width = 400;
 		t.x = 68;
-		t.y = 260;
+		t.y = 350;
 		return t;
 	};
 	_proto.balanceLabel_i = function () {
@@ -3776,21 +3864,32 @@ window.skins={};
 		t.height = 20;
 		t.horizontalCenter = 0;
 		t.size = 20;
-		t.text = "";
+		t.text = "100000";
 		t.textAlign = "center";
-		t.textColor = 0x596e6d;
+		t.textColor = 0x7f7f89;
 		t.width = 400;
-		t.y = 230;
+		t.y = 310;
 		return t;
 	};
 	_proto._Label2_i = function () {
 		var t = new eui.Label();
+		t.height = 40;
 		t.horizontalCenter = 0;
-		t.size = 15;
+		t.size = 20;
 		t.text = "温馨提示: 游戏途中成功申请带入, 将在下一局游戏开始后到账";
 		t.textAlign = "center";
-		t.width = 550;
-		t.y = 75;
+		t.width = 400;
+		t.y = 120;
+		return t;
+	};
+	_proto.scoreTextInput_i = function () {
+		var t = new ScoreTextInput();
+		this.scoreTextInput = t;
+		t.height = 50;
+		t.horizontalCenter = 0;
+		t.skinName = "ScoreTextInputSkin";
+		t.width = 230;
+		t.y = 190;
 		return t;
 	};
 	return BuyInSkin;
@@ -3903,17 +4002,182 @@ window.skins={};
 		return t;
 	};
 	return CardSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/ChatSkin.exml'] = window.ChatSkin = (function (_super) {
-	__extends(ChatSkin, _super);
-	function ChatSkin() {
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/BarrageCheckBoxSkin.exml'] = window.BarrageCheckBoxSkin = (function (_super) {
+	__extends(BarrageCheckBoxSkin, _super);
+	function BarrageCheckBoxSkin() {
 		_super.call(this);
-		this.skinParts = ["background","chatTextInput","sendButton","messageList","scroller"];
+		this.skinParts = [];
+		
+		this.height = 50;
+		this.width = 76;
+		this.elementsContent = [this._Image1_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+				])
+			,
+			new eui.State ("disabled",
+				[
+				])
+			,
+			new eui.State ("upAndSelected",
+				[
+					new eui.SetProperty("_Image1","source","icon_message_on_png")
+				])
+			,
+			new eui.State ("downAndSelected",
+				[
+				])
+			,
+			new eui.State ("disabledAndSelected",
+				[
+				])
+		];
+	}
+	var _proto = BarrageCheckBoxSkin.prototype;
+
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		this._Image1 = t;
+		t.percentHeight = 100;
+		t.source = "icon_message_off_png";
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	return BarrageCheckBoxSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/ChatHistorySkin.exml'] = window.ChatHistorySkin = (function (_super) {
+	__extends(ChatHistorySkin, _super);
+	function ChatHistorySkin() {
+		_super.call(this);
+		this.skinParts = ["historyList"];
+		
+		this.height = 470;
+		this.width = 692;
+		this.elementsContent = [this._Scroller1_i()];
+	}
+	var _proto = ChatHistorySkin.prototype;
+
+	_proto._Scroller1_i = function () {
+		var t = new eui.Scroller();
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		t.viewport = this.historyList_i();
+		return t;
+	};
+	_proto.historyList_i = function () {
+		var t = new eui.List();
+		this.historyList = t;
+		t.layout = this._VerticalLayout1_i();
+		return t;
+	};
+	_proto._VerticalLayout1_i = function () {
+		var t = new eui.VerticalLayout();
+		t.gap = 20;
+		t.horizontalAlign = "left";
+		t.paddingBottom = 20;
+		t.paddingLeft = 20;
+		t.paddingRight = 20;
+		t.paddingTop = 20;
+		t.verticalAlign = "top";
+		return t;
+	};
+	return ChatHistorySkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/ChatTabBarSkin.exml'] = window.ChatTabBarSkin = (function (_super) {
+	__extends(ChatTabBarSkin, _super);
+	function ChatTabBarSkin() {
+		_super.call(this);
+		this.skinParts = ["iconUp","iconDown","label"];
+		
+		this.currentState = "up";
+		this.height = 98;
+		this.width = 230;
+		this.elementsContent = [this._Rect1_i(),this.label_i()];
+		this.iconUp_i();
+		
+		this.iconDown_i();
+		
+		this.states = [
+			new eui.State ("up",
+				[
+					new eui.AddItems("iconUp","",2,"label"),
+					new eui.SetProperty("label","textColor",0x80a5a7)
+				])
+			,
+			new eui.State ("down",
+				[
+					new eui.AddItems("iconDown","",2,"label"),
+					new eui.SetProperty("label","textColor",0x6bfffd)
+				])
+		];
+		
+		eui.Binding.$bindProperties(this, ["hostComponent.data"],[0],this.label,"text");
+	}
+	var _proto = ChatTabBarSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillAlpha = 0;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.iconUp_i = function () {
+		var t = new eui.Image();
+		this.iconUp = t;
+		t.height = 56;
+		t.left = 46;
+		t.source = "";
+		t.verticalCenter = 0;
+		t.width = 64;
+		return t;
+	};
+	_proto.iconDown_i = function () {
+		var t = new eui.Image();
+		this.iconDown = t;
+		t.height = 56;
+		t.left = 46;
+		t.source = "";
+		t.verticalCenter = 0;
+		t.width = 64;
+		return t;
+	};
+	_proto.label_i = function () {
+		var t = new eui.Label();
+		this.label = t;
+		t.height = 60;
+		t.right = 46;
+		t.size = 30;
+		t.textAlign = "center";
+		t.textColor = 0x80a5a7;
+		t.verticalAlign = "middle";
+		t.verticalCenter = 0;
+		t.width = 60;
+		return t;
+	};
+	return ChatTabBarSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/ChatViewSkin.exml'] = window.ChatViewSkin = (function (_super) {
+	__extends(ChatViewSkin, _super);
+	function ChatViewSkin() {
+		_super.call(this);
+		this.skinParts = ["background","barrageCheckBox","toggleLabel","messageInput","sendButton","tabBar","stickerList","phraseList","chatHistoryView","viewStack","group"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this.background_i(),this._Rect1_i(),this.chatTextInput_i(),this.sendButton_i(),this.scroller_i()];
+		this.elementsContent = [this.background_i(),this.group_i()];
+		
+		eui.Binding.$bindProperties(this, ["viewStack"],[0],this.tabBar,"dataProvider");
 	}
-	var _proto = ChatSkin.prototype;
+	var _proto = ChatViewSkin.prototype;
 
 	_proto.background_i = function () {
 		var t = new eui.Rect();
@@ -3925,61 +4189,316 @@ window.skins={};
 		t.y = 0;
 		return t;
 	};
+	_proto.group_i = function () {
+		var t = new eui.Group();
+		this.group = t;
+		t.height = 764;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 570;
+		t.elementsContent = [this._Rect1_i(),this.barrageCheckBox_i(),this.toggleLabel_i(),this._Group1_i(),this.tabBar_i(),this._Group5_i()];
+		return t;
+	};
 	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
-		t.fillColor = 0x01362a;
-		t.percentHeight = 100;
-		t.width = 620;
+		t.bottom = 0;
+		t.fillAlpha = 0.9;
+		t.fillColor = 0x032425;
+		t.height = 764;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
 		return t;
 	};
-	_proto.chatTextInput_i = function () {
-		var t = new eui.TextInput();
-		this.chatTextInput = t;
-		t.bottom = 20;
-		t.height = 88;
-		t.left = 20;
+	_proto.barrageCheckBox_i = function () {
+		var t = new eui.CheckBox();
+		this.barrageCheckBox = t;
+		t.enabled = true;
+		t.height = 50;
+		t.label = "CheckBox";
+		t.selected = true;
+		t.skinName = "BarrageCheckBoxSkin";
+		t.width = 76;
+		t.x = 29;
+		t.y = 20;
+		return t;
+	};
+	_proto.toggleLabel_i = function () {
+		var t = new eui.Label();
+		this.toggleLabel = t;
+		t.size = 24;
+		t.text = "弹幕开启";
+		t.x = 120;
+		t.y = 33;
+		return t;
+	};
+	_proto._Group1_i = function () {
+		var t = new eui.Group();
+		t.height = 85;
+		t.width = 692;
+		t.x = 29;
+		t.y = 86;
+		t.elementsContent = [this.messageInput_i(),this.sendButton_i()];
+		return t;
+	};
+	_proto.messageInput_i = function () {
+		var t = new ChatTextInput();
+		this.messageInput = t;
+		t.height = 85;
+		t.maximun = 0;
+		t.prompt = "请输入文字";
 		t.skinName = "ChatTextInputSkin";
-		t.width = 400;
+		t.value = 0;
+		t.width = 568;
+		t.x = 0;
+		t.y = 0;
 		return t;
 	};
 	_proto.sendButton_i = function () {
 		var t = new eui.Button();
 		this.sendButton = t;
+		t.height = 85;
 		t.label = "发送";
+		t.right = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
 		t.skinName = "ChatSendButtonSkin";
-		t.x = 440;
-		t.y = 1226;
+		t.width = 110;
+		t.y = 0;
 		return t;
 	};
-	_proto.scroller_i = function () {
-		var t = new eui.Scroller();
-		this.scroller = t;
+	_proto.tabBar_i = function () {
+		var t = new eui.TabBar();
+		this.tabBar = t;
 		t.anchorOffsetY = 0;
-		t.height = 1200;
-		t.width = 620;
+		t.height = 98;
+		t.horizontalCenter = 0;
+		t.itemRendererSkinName = ChatTabBarSkin;
+		t.selectedIndex = 0;
+		t.width = 692;
+		t.y = 171;
+		t.layout = this._HorizontalLayout1_i();
+		return t;
+	};
+	_proto._HorizontalLayout1_i = function () {
+		var t = new eui.HorizontalLayout();
+		t.gap = 0;
+		t.horizontalAlign = "center";
+		t.paddingLeft = 1;
+		t.paddingRight = 1;
+		t.verticalAlign = "contentJustify";
+		return t;
+	};
+	_proto._Group5_i = function () {
+		var t = new eui.Group();
+		t.height = 470;
+		t.width = 692;
+		t.x = 29;
+		t.y = 269;
+		t.elementsContent = [this._Rect2_i(),this.viewStack_i()];
+		return t;
+	};
+	_proto._Rect2_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillColor = 0x638A97;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "ChatTabBarSkin";
+		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 0;
-		t.viewport = this.messageList_i();
 		return t;
 	};
-	_proto.messageList_i = function () {
+	_proto.viewStack_i = function () {
+		var t = new eui.ViewStack();
+		this.viewStack = t;
+		t.height = 470;
+		t.selectedIndex = 0;
+		t.width = 692;
+		t.x = 0;
+		t.y = 0;
+		t.elementsContent = [this._Group2_i(),this._Group3_i(),this._Group4_i()];
+		return t;
+	};
+	_proto._Group2_i = function () {
+		var t = new eui.Group();
+		t.percentHeight = 100;
+		t.name = "表情";
+		t.percentWidth = 100;
+		t.elementsContent = [this._Scroller1_i()];
+		return t;
+	};
+	_proto._Scroller1_i = function () {
+		var t = new eui.Scroller();
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		t.viewport = this.stickerList_i();
+		return t;
+	};
+	_proto.stickerList_i = function () {
 		var t = new eui.List();
-		this.messageList = t;
+		this.stickerList = t;
+		t.itemRendererSkinName = StickerItemSkin;
+		t.layout = this._TileLayout1_i();
+		return t;
+	};
+	_proto._TileLayout1_i = function () {
+		var t = new eui.TileLayout();
+		t.horizontalAlign = "center";
+		t.horizontalGap = 12;
+		t.orientation = "rows";
+		t.paddingBottom = 16;
+		t.paddingLeft = 16;
+		t.paddingRight = 16;
+		t.paddingTop = 16;
+		t.verticalAlign = "top";
+		t.verticalGap = 12;
+		return t;
+	};
+	_proto._Group3_i = function () {
+		var t = new eui.Group();
+		t.percentHeight = 100;
+		t.name = "短语";
+		t.percentWidth = 100;
+		t.elementsContent = [this._Scroller2_i()];
+		return t;
+	};
+	_proto._Scroller2_i = function () {
+		var t = new eui.Scroller();
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		t.viewport = this.phraseList_i();
+		return t;
+	};
+	_proto.phraseList_i = function () {
+		var t = new eui.List();
+		this.phraseList = t;
+		t.itemRendererSkinName = PhraseItemSkin;
 		t.layout = this._VerticalLayout1_i();
 		return t;
 	};
 	_proto._VerticalLayout1_i = function () {
 		var t = new eui.VerticalLayout();
-		t.gap = 0;
-		t.paddingBottom = 10;
-		t.paddingLeft = 10;
-		t.paddingRight = 10;
-		t.paddingTop = 10;
+		t.gap = 11;
+		t.horizontalAlign = "center";
+		t.paddingBottom = 12;
+		t.paddingLeft = 12;
+		t.paddingRight = 12;
+		t.paddingTop = 12;
+		t.verticalAlign = "contentJustify";
 		return t;
 	};
-	return ChatSkin;
+	_proto._Group4_i = function () {
+		var t = new eui.Group();
+		t.percentHeight = 100;
+		t.name = "聊天记录";
+		t.percentWidth = 100;
+		t.elementsContent = [this.chatHistoryView_i()];
+		return t;
+	};
+	_proto.chatHistoryView_i = function () {
+		var t = new ChatHistoryView();
+		this.chatHistoryView = t;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	return ChatViewSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/PhraseItemSkin.exml'] = window.PhraseItemSkin = (function (_super) {
+	__extends(PhraseItemSkin, _super);
+	function PhraseItemSkin() {
+		_super.call(this);
+		this.skinParts = ["label"];
+		
+		this.height = 80;
+		this.width = 668;
+		this.elementsContent = [this._Rect1_i(),this.label_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+					new eui.SetProperty("_Rect1","fillColor",0x34595b),
+					new eui.SetStateProperty(this, ["hostComponent.data"],[0],this.label,"text")
+				])
+		];
+		
+		eui.Binding.$bindProperties(this, ["hostComponent.data"],[0],this.label,"text");
+	}
+	var _proto = PhraseItemSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		this._Rect1 = t;
+		t.ellipseHeight = 12;
+		t.ellipseWidth = 12;
+		t.fillColor = 0x34595b;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.label_i = function () {
+		var t = new eui.Label();
+		this.label = t;
+		t.left = 25;
+		t.size = 26;
+		t.textColor = 0x9dbac4;
+		t.verticalCenter = 0;
+		t.width = 618;
+		return t;
+	};
+	return PhraseItemSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/StickerItemSkin.exml'] = window.StickerItemSkin = (function (_super) {
+	__extends(StickerItemSkin, _super);
+	function StickerItemSkin() {
+		_super.call(this);
+		this.skinParts = ["sticker"];
+		
+		this.height = 100;
+		this.width = 100;
+		this.elementsContent = [this._Rect1_i(),this.sticker_i()];
+	}
+	var _proto = StickerItemSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 25;
+		t.ellipseWidth = 25;
+		t.fillColor = 0x34595b;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.sticker_i = function () {
+		var t = new eui.Image();
+		this.sticker = t;
+		t.percentHeight = 80;
+		t.horizontalCenter = 0;
+		t.source = "icon_sticker_drink_png";
+		t.verticalCenter = 0;
+		t.percentWidth = 80;
+		return t;
+	};
+	return StickerItemSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/InsuranceView/CountdownProgressSkin.exml'] = window.CountdownProgressSkin = (function (_super) {
 	__extends(CountdownProgressSkin, _super);
 	function CountdownProgressSkin() {
@@ -4275,7 +4794,7 @@ window.skins={};
 		return t;
 	};
 	return MarkSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/MenuItemSkin.exml'] = window.MenuItemSkin = (function (_super) {
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/MenuView/MenuItemSkin.exml'] = window.MenuItemSkin = (function (_super) {
 	__extends(MenuItemSkin, _super);
 	function MenuItemSkin() {
 		_super.call(this);
@@ -4319,8 +4838,8 @@ window.skins={};
 		t.height = 88;
 		t.textAlign = "left";
 		t.verticalAlign = "middle";
-		t.width = 147;
-		t.x = 30;
+		t.width = 180;
+		t.x = 20;
 		t.y = 0;
 		return t;
 	};
@@ -4335,7 +4854,7 @@ window.skins={};
 		return t;
 	};
 	return MenuItemSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/MenuViewSkin.exml'] = window.MenuViewSkin = (function (_super) {
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/MenuView/MenuViewSkin.exml'] = window.MenuViewSkin = (function (_super) {
 	__extends(MenuViewSkin, _super);
 	function MenuViewSkin() {
 		_super.call(this);
@@ -4417,7 +4936,7 @@ window.skins={};
 	};
 	_proto._Object2_i = function () {
 		var t = {};
-		t.item = "补充带入";
+		t.item = "补充记分牌";
 		t.showArrow = "";
 		return t;
 	};
@@ -4523,9 +5042,9 @@ window.skins={};
 	return NumericKeyboardItemSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/NumericKeyboard/NumericKeyboardSkin.exml'] = window.NumericKeyboardSkin = (function (_super) {
 	__extends(NumericKeyboardSkin, _super);
-	var NumericKeyboardSkin$Skin18 = 	(function (_super) {
-		__extends(NumericKeyboardSkin$Skin18, _super);
-		function NumericKeyboardSkin$Skin18() {
+	var NumericKeyboardSkin$Skin19 = 	(function (_super) {
+		__extends(NumericKeyboardSkin$Skin19, _super);
+		function NumericKeyboardSkin$Skin19() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -4546,7 +5065,7 @@ window.skins={};
 					])
 			];
 		}
-		var _proto = NumericKeyboardSkin$Skin18.prototype;
+		var _proto = NumericKeyboardSkin$Skin19.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -4565,7 +5084,7 @@ window.skins={};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return NumericKeyboardSkin$Skin18;
+		return NumericKeyboardSkin$Skin19;
 	})(eui.Skin);
 
 	function NumericKeyboardSkin() {
@@ -4748,7 +5267,7 @@ window.skins={};
 		t.scaleX = 1;
 		t.scaleY = 1;
 		t.verticalCenter = 0;
-		t.skinName = NumericKeyboardSkin$Skin18;
+		t.skinName = NumericKeyboardSkin$Skin19;
 		return t;
 	};
 	return NumericKeyboardSkin;
@@ -4756,7 +5275,7 @@ window.skins={};
 	__extends(PlayerDetailSkin, _super);
 	function PlayerDetailSkin() {
 		_super.call(this);
-		this.skinParts = ["background","avatarImage","nicknameLabel","bioLabel","statisticList","cardList","group"];
+		this.skinParts = ["background","avatarImage","nicknameLabel","bioLabel","statisticList","propsList","group"];
 		
 		this.height = 1334;
 		this.width = 750;
@@ -4777,37 +5296,25 @@ window.skins={};
 	_proto.group_i = function () {
 		var t = new eui.Group();
 		this.group = t;
-		t.height = 970;
+		t.height = 960;
 		t.horizontalCenter = 0;
 		t.verticalCenter = 0;
 		t.width = 690;
-		t.elementsContent = [this._Rect1_i(),this._Rect2_i(),this.avatarImage_i(),this.nicknameLabel_i(),this.bioLabel_i(),this.statisticList_i(),this._Label1_i(),this.cardList_i()];
+		t.elementsContent = [this._Rect1_i(),this.avatarImage_i(),this.nicknameLabel_i(),this.bioLabel_i(),this._Group1_i(),this._Group2_i()];
 		return t;
 	};
 	_proto._Rect1_i = function () {
 		var t = new eui.Rect();
 		t.ellipseHeight = 20;
 		t.ellipseWidth = 20;
-		t.fillColor = 0x001211;
-		t.height = 970;
+		t.fillColor = 0x1b1e2d;
+		t.height = 960;
 		t.strokeAlpha = 0.5;
-		t.strokeColor = 0x3bffde;
+		t.strokeColor = 0xe1edea;
 		t.strokeWeight = 3;
 		t.width = 690;
 		t.x = 0;
 		t.y = 0;
-		return t;
-	};
-	_proto._Rect2_i = function () {
-		var t = new eui.Rect();
-		t.anchorOffsetY = 0;
-		t.ellipseHeight = 20;
-		t.ellipseWidth = 20;
-		t.fillColor = 0x072927;
-		t.height = 742;
-		t.width = 660;
-		t.x = 15;
-		t.y = 206;
 		return t;
 	};
 	_proto.avatarImage_i = function () {
@@ -4840,16 +5347,42 @@ window.skins={};
 		t.y = 130;
 		return t;
 	};
+	_proto._Group1_i = function () {
+		var t = new eui.Group();
+		t.height = 560;
+		t.width = 660;
+		t.x = 15;
+		t.y = 206;
+		t.elementsContent = [this._Rect2_i(),this.statisticList_i()];
+		return t;
+	};
+	_proto._Rect2_i = function () {
+		var t = new eui.Rect();
+		t.anchorOffsetY = 0;
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillColor = 0x32374c;
+		t.height = 560;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.width = 660;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
 	_proto.statisticList_i = function () {
 		var t = new eui.List();
 		this.statisticList = t;
 		t.anchorOffsetX = 0;
 		t.anchorOffsetY = 0;
-		t.height = 604;
+		t.height = 560;
 		t.horizontalCenter = 0;
 		t.itemRendererSkinName = StatisticItemSkin;
+		t.scaleX = 1;
+		t.scaleY = 1;
 		t.width = 660;
-		t.y = 206;
+		t.x = 0;
+		t.y = 0;
 		t.layout = this._TileLayout1_i();
 		t.dataProvider = this._ArrayCollection1_i();
 		return t;
@@ -4862,9 +5395,9 @@ window.skins={};
 		t.paddingBottom = 0;
 		t.paddingLeft = 0;
 		t.paddingRight = 0;
-		t.paddingTop = 0;
+		t.paddingTop = 10;
 		t.verticalAlign = "contentJustify";
-		t.verticalGap = 0;
+		t.verticalGap = 10;
 		return t;
 	};
 	_proto._ArrayCollection1_i = function () {
@@ -4962,73 +5495,95 @@ window.skins={};
 		t.title = "赢过最大的池底";
 		return t;
 	};
-	_proto._Label1_i = function () {
-		var t = new eui.Label();
-		t.size = 24;
-		t.text = "赢过最大的牌";
-		t.textColor = 0xb8c2c0;
-		t.x = 35;
-		t.y = 870;
+	_proto._Group2_i = function () {
+		var t = new eui.Group();
+		t.height = 160;
+		t.width = 660;
+		t.x = 15;
+		t.y = 780;
+		t.elementsContent = [this._Rect3_i(),this._Scroller1_i()];
 		return t;
 	};
-	_proto.cardList_i = function () {
+	_proto._Rect3_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillColor = 0x32374c;
+		t.height = 160;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.width = 660;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Scroller1_i = function () {
+		var t = new eui.Scroller();
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		t.viewport = this.propsList_i();
+		return t;
+	};
+	_proto.propsList_i = function () {
 		var t = new eui.List();
-		this.cardList = t;
-		t.anchorOffsetX = 0;
-		t.height = 80;
-		t.itemRendererSkinName = WonCardItemSkin;
-		t.width = 366;
-		t.x = 250;
-		t.y = 842;
+		this.propsList = t;
 		t.layout = this._HorizontalLayout1_i();
-		t.dataProvider = this._ArrayCollection2_i();
 		return t;
 	};
 	_proto._HorizontalLayout1_i = function () {
 		var t = new eui.HorizontalLayout();
-		t.gap = 18;
-		return t;
-	};
-	_proto._ArrayCollection2_i = function () {
-		var t = new eui.ArrayCollection();
-		t.source = [this._Object16_i(),this._Object17_i(),this._Object18_i(),this._Object19_i(),this._Object20_i()];
-		return t;
-	};
-	_proto._Object16_i = function () {
-		var t = {};
-		t.cardName = "1";
-		return t;
-	};
-	_proto._Object17_i = function () {
-		var t = {};
-		t.cardName = "null";
-		return t;
-	};
-	_proto._Object18_i = function () {
-		var t = {};
-		t.cardName = "null";
-		return t;
-	};
-	_proto._Object19_i = function () {
-		var t = {};
-		t.cardName = "null";
-		return t;
-	};
-	_proto._Object20_i = function () {
-		var t = {};
-		t.cardName = "null";
+		t.gap = 26;
+		t.horizontalAlign = "contentJustify";
+		t.paddingLeft = 26;
+		t.paddingRight = 26;
+		t.verticalAlign = "middle";
 		return t;
 	};
 	return PlayerDetailSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayerDetail/PropsItemSkin.exml'] = window.PropsItemSkin = (function (_super) {
+	__extends(PropsItemSkin, _super);
+	function PropsItemSkin() {
+		_super.call(this);
+		this.skinParts = ["props"];
+		
+		this.height = 100;
+		this.width = 100;
+		this.elementsContent = [this._Rect1_i(),this.props_i()];
+	}
+	var _proto = PropsItemSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.fillAlpha = 0;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.props_i = function () {
+		var t = new eui.Image();
+		this.props = t;
+		t.height = 100;
+		t.horizontalCenter = 0;
+		t.source = "icon_props_tomato_png";
+		t.verticalCenter = 0;
+		t.width = 100;
+		return t;
+	};
+	return PropsItemSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayerDetail/StatisticdItemSkin.exml'] = window.StatisticItemSkin = (function (_super) {
 	__extends(StatisticItemSkin, _super);
 	function StatisticItemSkin() {
 		_super.call(this);
 		this.skinParts = ["titleLabel","dataLabel"];
 		
-		this.height = 120;
+		this.height = 100;
 		this.width = 220;
-		this.elementsContent = [this.titleLabel_i(),this.dataLabel_i(),this._Rect1_i()];
+		this.elementsContent = [this.titleLabel_i(),this.dataLabel_i()];
 		
 		eui.Binding.$bindProperties(this, ["hostComponent.data.title"],[0],this.titleLabel,"text");
 		eui.Binding.$bindProperties(this, ["hostComponent.data.data"],[0],this.dataLabel,"text");
@@ -5044,7 +5599,7 @@ window.skins={};
 		t.textColor = 0xb8c2c0;
 		t.width = 148;
 		t.x = 20;
-		t.y = 15;
+		t.y = 0;
 		return t;
 	};
 	_proto.dataLabel_i = function () {
@@ -5055,42 +5610,10 @@ window.skins={};
 		t.textColor = 0xffffff;
 		t.width = 158;
 		t.x = 20;
-		t.y = 65;
-		return t;
-	};
-	_proto._Rect1_i = function () {
-		var t = new eui.Rect();
-		t.fillColor = 0x08372c;
-		t.height = 2;
-		t.width = 220;
-		t.x = 0;
-		t.y = 118;
+		t.y = 58;
 		return t;
 	};
 	return StatisticItemSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayerDetail/WonCardItemSkin.exml'] = window.WonCardItemSkin = (function (_super) {
-	__extends(WonCardItemSkin, _super);
-	function WonCardItemSkin() {
-		_super.call(this);
-		this.skinParts = ["cardImage"];
-		
-		this.height = 80;
-		this.width = 54;
-		this.elementsContent = [this.cardImage_i()];
-	}
-	var _proto = WonCardItemSkin.prototype;
-
-	_proto.cardImage_i = function () {
-		var t = new eui.Image();
-		this.cardImage = t;
-		t.height = 80;
-		t.source = "poker_back_png";
-		t.width = 54;
-		t.x = 0;
-		t.y = 0;
-		return t;
-	};
-	return WonCardItemSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayerSkin.exml'] = window.PlayerSkin = (function (_super) {
 	__extends(PlayerSkin, _super);
 	function PlayerSkin() {
@@ -6158,9 +6681,9 @@ window.skins={};
 	return SeatViewSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/LaunchSkins/InputPhoneNumberSkin.exml'] = window.InputPhoneNumberSkin = (function (_super) {
 	__extends(InputPhoneNumberSkin, _super);
-	var InputPhoneNumberSkin$Skin19 = 	(function (_super) {
-		__extends(InputPhoneNumberSkin$Skin19, _super);
-		function InputPhoneNumberSkin$Skin19() {
+	var InputPhoneNumberSkin$Skin20 = 	(function (_super) {
+		__extends(InputPhoneNumberSkin$Skin20, _super);
+		function InputPhoneNumberSkin$Skin20() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6181,7 +6704,7 @@ window.skins={};
 					])
 			];
 		}
-		var _proto = InputPhoneNumberSkin$Skin19.prototype;
+		var _proto = InputPhoneNumberSkin$Skin20.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6200,7 +6723,7 @@ window.skins={};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return InputPhoneNumberSkin$Skin19;
+		return InputPhoneNumberSkin$Skin20;
 	})(eui.Skin);
 
 	function InputPhoneNumberSkin() {
@@ -6278,7 +6801,7 @@ window.skins={};
 		t.label = "";
 		t.x = 158;
 		t.y = 250;
-		t.skinName = InputPhoneNumberSkin$Skin19;
+		t.skinName = InputPhoneNumberSkin$Skin20;
 		return t;
 	};
 	return InputPhoneNumberSkin;
@@ -6331,6 +6854,7 @@ window.skins={};
 		this.createButton = t;
 		t.label = "我的";
 		t.skinName = "ChatSendButtonSkin";
+		t.width = 160;
 		t.x = 67;
 		t.y = 259;
 		return t;
@@ -6367,6 +6891,7 @@ window.skins={};
 		this.joinButton = t;
 		t.label = "加入";
 		t.skinName = "ChatSendButtonSkin";
+		t.width = 160;
 		t.x = 323;
 		t.y = 259;
 		return t;
@@ -6430,9 +6955,9 @@ window.skins={};
 	return TimerButtonSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/LaunchSkins/InputVerificationCodeSkin.exml'] = window.InputVerificationCodeSkin = (function (_super) {
 	__extends(InputVerificationCodeSkin, _super);
-	var InputVerificationCodeSkin$Skin20 = 	(function (_super) {
-		__extends(InputVerificationCodeSkin$Skin20, _super);
-		function InputVerificationCodeSkin$Skin20() {
+	var InputVerificationCodeSkin$Skin21 = 	(function (_super) {
+		__extends(InputVerificationCodeSkin$Skin21, _super);
+		function InputVerificationCodeSkin$Skin21() {
 			_super.call(this);
 			this.skinParts = ["labelDisplay"];
 			
@@ -6453,7 +6978,7 @@ window.skins={};
 					])
 			];
 		}
-		var _proto = InputVerificationCodeSkin$Skin20.prototype;
+		var _proto = InputVerificationCodeSkin$Skin21.prototype;
 
 		_proto._Image1_i = function () {
 			var t = new eui.Image();
@@ -6472,7 +6997,7 @@ window.skins={};
 			t.verticalCenter = 0;
 			return t;
 		};
-		return InputVerificationCodeSkin$Skin20;
+		return InputVerificationCodeSkin$Skin21;
 	})(eui.Skin);
 
 	function InputVerificationCodeSkin() {
@@ -6532,7 +7057,7 @@ window.skins={};
 		t.label = "";
 		t.x = 158;
 		t.y = 290;
-		t.skinName = InputVerificationCodeSkin$Skin20;
+		t.skinName = InputVerificationCodeSkin$Skin21;
 		return t;
 	};
 	_proto._Label2_i = function () {
@@ -6589,51 +7114,6 @@ window.skins={};
 	return InputVerificationCodeSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/LaunchSkins/LaunchSkin.exml'] = window.LaunchSkin = (function (_super) {
 	__extends(LaunchSkin, _super);
-	var LaunchSkin$Skin21 = 	(function (_super) {
-		__extends(LaunchSkin$Skin21, _super);
-		function LaunchSkin$Skin21() {
-			_super.call(this);
-			this.skinParts = ["labelDisplay"];
-			
-			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
-			this.states = [
-				new eui.State ("up",
-					[
-					])
-				,
-				new eui.State ("down",
-					[
-						new eui.SetProperty("_Image1","percentWidth",90),
-						new eui.SetProperty("_Image1","percentHeight",90)
-					])
-				,
-				new eui.State ("disabled",
-					[
-					])
-			];
-		}
-		var _proto = LaunchSkin$Skin21.prototype;
-
-		_proto._Image1_i = function () {
-			var t = new eui.Image();
-			this._Image1 = t;
-			t.percentHeight = 100;
-			t.horizontalCenter = 0;
-			t.source = "btn_phone_login_png";
-			t.verticalCenter = 0;
-			t.percentWidth = 100;
-			return t;
-		};
-		_proto.labelDisplay_i = function () {
-			var t = new eui.Label();
-			this.labelDisplay = t;
-			t.horizontalCenter = 0;
-			t.verticalCenter = 0;
-			return t;
-		};
-		return LaunchSkin$Skin21;
-	})(eui.Skin);
-
 	var LaunchSkin$Skin22 = 	(function (_super) {
 		__extends(LaunchSkin$Skin22, _super);
 		function LaunchSkin$Skin22() {
@@ -6664,7 +7144,7 @@ window.skins={};
 			this._Image1 = t;
 			t.percentHeight = 100;
 			t.horizontalCenter = 0;
-			t.source = "btn_login_by_visitor_png";
+			t.source = "btn_phone_login_png";
 			t.verticalCenter = 0;
 			t.percentWidth = 100;
 			return t;
@@ -6677,6 +7157,51 @@ window.skins={};
 			return t;
 		};
 		return LaunchSkin$Skin22;
+	})(eui.Skin);
+
+	var LaunchSkin$Skin23 = 	(function (_super) {
+		__extends(LaunchSkin$Skin23, _super);
+		function LaunchSkin$Skin23() {
+			_super.call(this);
+			this.skinParts = ["labelDisplay"];
+			
+			this.elementsContent = [this._Image1_i(),this.labelDisplay_i()];
+			this.states = [
+				new eui.State ("up",
+					[
+					])
+				,
+				new eui.State ("down",
+					[
+						new eui.SetProperty("_Image1","percentWidth",90),
+						new eui.SetProperty("_Image1","percentHeight",90)
+					])
+				,
+				new eui.State ("disabled",
+					[
+					])
+			];
+		}
+		var _proto = LaunchSkin$Skin23.prototype;
+
+		_proto._Image1_i = function () {
+			var t = new eui.Image();
+			this._Image1 = t;
+			t.percentHeight = 100;
+			t.horizontalCenter = 0;
+			t.source = "btn_login_by_visitor_png";
+			t.verticalCenter = 0;
+			t.percentWidth = 100;
+			return t;
+		};
+		_proto.labelDisplay_i = function () {
+			var t = new eui.Label();
+			this.labelDisplay = t;
+			t.horizontalCenter = 0;
+			t.verticalCenter = 0;
+			return t;
+		};
+		return LaunchSkin$Skin23;
 	})(eui.Skin);
 
 	function LaunchSkin() {
@@ -6719,7 +7244,7 @@ window.skins={};
 		t.scaleY = 1;
 		t.x = 93;
 		t.y = 277.0000000000001;
-		t.skinName = LaunchSkin$Skin21;
+		t.skinName = LaunchSkin$Skin22;
 		return t;
 	};
 	_proto.visitorButton_i = function () {
@@ -6731,7 +7256,7 @@ window.skins={};
 		t.scaleY = 1;
 		t.x = 93;
 		t.y = 125.29999999999995;
-		t.skinName = LaunchSkin$Skin22;
+		t.skinName = LaunchSkin$Skin23;
 		return t;
 	};
 	_proto.displayLabel_i = function () {
