@@ -4752,15 +4752,114 @@ window.skins={};
 		return t;
 	};
 	return ChatTabBarSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/TextVoiceCheckBoxSkin.exml'] = window.TextVoiceCheckBoxSkin = (function (_super) {
+	__extends(TextVoiceCheckBoxSkin, _super);
+	function TextVoiceCheckBoxSkin() {
+		_super.call(this);
+		this.skinParts = [];
+		
+		this.height = 72;
+		this.width = 72;
+		this.elementsContent = [this._Image1_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+				])
+			,
+			new eui.State ("disabled",
+				[
+				])
+			,
+			new eui.State ("upAndSelected",
+				[
+					new eui.SetProperty("_Image1","source","icon_chat_text_png")
+				])
+			,
+			new eui.State ("downAndSelected",
+				[
+				])
+			,
+			new eui.State ("disabledAndSelected",
+				[
+				])
+		];
+	}
+	var _proto = TextVoiceCheckBoxSkin.prototype;
+
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		this._Image1 = t;
+		t.percentHeight = 100;
+		t.source = "icon_chat_voice_png";
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	return TextVoiceCheckBoxSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/RecordVoiceButtonSkin.exml'] = window.RecordVoiceButtonSkin = (function (_super) {
+	__extends(RecordVoiceButtonSkin, _super);
+	function RecordVoiceButtonSkin() {
+		_super.call(this);
+		this.skinParts = ["labelDisplay"];
+		
+		this.height = 89;
+		this.width = 490;
+		this.elementsContent = [this._Rect1_i(),this.labelDisplay_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+					new eui.SetProperty("_Rect1","fillColor",0x2d4b55)
+				])
+			,
+			new eui.State ("disabled",
+				[
+					new eui.SetProperty("_Rect1","fillColor",0x87dbae)
+				])
+		];
+	}
+	var _proto = RecordVoiceButtonSkin.prototype;
+
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		this._Rect1 = t;
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillColor = 0x638a9a;
+		t.percentHeight = 100;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.labelDisplay_i = function () {
+		var t = new eui.Label();
+		this.labelDisplay = t;
+		t.horizontalCenter = 0;
+		t.size = 30;
+		t.text = "按住  说话";
+		t.textColor = 0xd7e4e9;
+		t.verticalCenter = 0;
+		return t;
+	};
+	return RecordVoiceButtonSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/ChatViewSkin.exml'] = window.ChatViewSkin = (function (_super) {
 	__extends(ChatViewSkin, _super);
 	function ChatViewSkin() {
 		_super.call(this);
-		this.skinParts = ["background","barrageCheckBox","toggleLabel","messageInput","sendButton","tabBar","stickerList","phraseList","chatHistoryView","viewStack","group"];
+		this.skinParts = ["background","labelBg","statusLabel","statusImage","countdownLabel","recordingGroup","cancelImage","recordGroup","barrageCheckBox","toggleLabel","messageInput","sendButton","inputCheckBox","recordButton","tabBar","stickerList","phraseList","chatHistoryView","viewStack","chatGroup"];
 		
 		this.height = 1334;
 		this.width = 750;
-		this.elementsContent = [this.background_i(),this.group_i()];
+		this.elementsContent = [this.background_i(),this.recordGroup_i(),this.chatGroup_i()];
 		
 		eui.Binding.$bindProperties(this, ["viewStack"],[0],this.tabBar,"dataProvider");
 	}
@@ -4776,17 +4875,158 @@ window.skins={};
 		t.y = 0;
 		return t;
 	};
-	_proto.group_i = function () {
+	_proto.recordGroup_i = function () {
 		var t = new eui.Group();
-		this.group = t;
+		this.recordGroup = t;
+		t.percentHeight = 100;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.visible = false;
+		t.percentWidth = 100;
+		t.elementsContent = [this._Rect1_i(),this._Group2_i()];
+		return t;
+	};
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillAlpha = 0;
+		t.fillColor = 0x000000;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 10;
+		t.y = 10;
+		return t;
+	};
+	_proto._Group2_i = function () {
+		var t = new eui.Group();
+		t.height = 340;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.width = 340;
+		t.elementsContent = [this._Rect2_i(),this._Group1_i(),this.recordingGroup_i(),this.cancelImage_i()];
+		return t;
+	};
+	_proto._Rect2_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 20;
+		t.ellipseWidth = 20;
+		t.fillAlpha = 0.9;
+		t.fillColor = 0x032425;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Group1_i = function () {
+		var t = new eui.Group();
+		t.height = 32;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.width = 260;
+		t.x = 40;
+		t.y = 277;
+		t.elementsContent = [this.labelBg_i(),this.statusLabel_i()];
+		return t;
+	};
+	_proto.labelBg_i = function () {
+		var t = new eui.Rect();
+		this.labelBg = t;
+		t.fillColor = 0xac4145;
+		t.percentHeight = 100;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.visible = false;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto.statusLabel_i = function () {
+		var t = new eui.Label();
+		this.statusLabel = t;
+		t.horizontalCenter = 0;
+		t.size = 28;
+		t.text = "手指上滑，取消发送";
+		t.textAlign = "center";
+		t.textColor = 0xffffff;
+		t.verticalAlign = "middle";
+		t.verticalCenter = 0;
+		return t;
+	};
+	_proto.recordingGroup_i = function () {
+		var t = new eui.Group();
+		this.recordingGroup = t;
+		t.height = 200;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.width = 340;
+		t.x = 0;
+		t.y = 40;
+		t.elementsContent = [this.statusImage_i(),this.countdownLabel_i()];
+		return t;
+	};
+	_proto.statusImage_i = function () {
+		var t = new eui.Image();
+		this.statusImage = t;
+		t.height = 174;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "icon_chat_big_microphone_png";
+		t.width = 103;
+		t.x = 52.00000000000006;
+		t.y = 13;
+		return t;
+	};
+	_proto.countdownLabel_i = function () {
+		var t = new eui.Label();
+		this.countdownLabel = t;
+		t.anchorOffsetY = 0;
+		t.bold = true;
+		t.height = 120;
+		t.size = 100;
+		t.text = "10";
+		t.textAlign = "center";
+		t.textColor = 0xaececb;
+		t.verticalAlign = "middle";
+		t.width = 120;
+		t.x = 180;
+		t.y = 40;
+		return t;
+	};
+	_proto.cancelImage_i = function () {
+		var t = new eui.Image();
+		this.cancelImage = t;
+		t.height = 130;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.source = "icon_chat_audio_cancel_png";
+		t.verticalCenter = 0;
+		t.visible = false;
+		t.width = 102;
+		t.x = 119;
+		t.y = 105;
+		return t;
+	};
+	_proto.chatGroup_i = function () {
+		var t = new eui.Group();
+		this.chatGroup = t;
 		t.height = 764;
 		t.percentWidth = 100;
 		t.x = 0;
 		t.y = 570;
-		t.elementsContent = [this._Rect1_i(),this.barrageCheckBox_i(),this.toggleLabel_i(),this._Group1_i(),this.tabBar_i(),this._Group5_i()];
+		t.elementsContent = [this._Rect3_i(),this.barrageCheckBox_i(),this.toggleLabel_i(),this._Group3_i(),this.tabBar_i(),this._Group7_i()];
 		return t;
 	};
-	_proto._Rect1_i = function () {
+	_proto._Rect3_i = function () {
 		var t = new eui.Rect();
 		t.bottom = 0;
 		t.fillAlpha = 0.9;
@@ -4821,13 +5061,13 @@ window.skins={};
 		t.y = 33;
 		return t;
 	};
-	_proto._Group1_i = function () {
+	_proto._Group3_i = function () {
 		var t = new eui.Group();
 		t.height = 85;
 		t.horizontalCenter = 0;
 		t.width = 692;
 		t.y = 86;
-		t.elementsContent = [this.messageInput_i(),this.sendButton_i()];
+		t.elementsContent = [this.messageInput_i(),this.sendButton_i(),this.inputCheckBox_i(),this.recordButton_i()];
 		return t;
 	};
 	_proto.messageInput_i = function () {
@@ -4838,8 +5078,8 @@ window.skins={};
 		t.prompt = "请输入文字";
 		t.skinName = "ChatTextInputSkin";
 		t.value = 0;
-		t.width = 568;
-		t.x = 0;
+		t.width = 490;
+		t.x = 78;
 		t.y = 0;
 		return t;
 	};
@@ -4853,6 +5093,29 @@ window.skins={};
 		t.scaleY = 1;
 		t.skinName = "ChatSendButtonSkin";
 		t.width = 110;
+		t.y = 0;
+		return t;
+	};
+	_proto.inputCheckBox_i = function () {
+		var t = new eui.CheckBox();
+		this.inputCheckBox = t;
+		t.height = 72;
+		t.label = "";
+		t.skinName = "TextVoiceCheckBoxSkin";
+		t.verticalCenter = 0;
+		t.width = 72;
+		t.x = 0;
+		return t;
+	};
+	_proto.recordButton_i = function () {
+		var t = new eui.Button();
+		this.recordButton = t;
+		t.height = 85;
+		t.label = "按住  说话";
+		t.skinName = "RecordVoiceButtonSkin";
+		t.visible = false;
+		t.width = 490;
+		t.x = 78;
 		t.y = 0;
 		return t;
 	};
@@ -4878,16 +5141,16 @@ window.skins={};
 		t.verticalAlign = "contentJustify";
 		return t;
 	};
-	_proto._Group5_i = function () {
+	_proto._Group7_i = function () {
 		var t = new eui.Group();
 		t.height = 470;
 		t.horizontalCenter = 0;
 		t.width = 692;
 		t.y = 269;
-		t.elementsContent = [this._Rect2_i(),this.viewStack_i()];
+		t.elementsContent = [this._Rect4_i(),this.viewStack_i()];
 		return t;
 	};
-	_proto._Rect2_i = function () {
+	_proto._Rect4_i = function () {
 		var t = new eui.Rect();
 		t.ellipseHeight = 20;
 		t.ellipseWidth = 20;
@@ -4909,10 +5172,10 @@ window.skins={};
 		t.width = 692;
 		t.x = 0;
 		t.y = 0;
-		t.elementsContent = [this._Group2_i(),this._Group3_i(),this._Group4_i()];
+		t.elementsContent = [this._Group4_i(),this._Group5_i(),this._Group6_i()];
 		return t;
 	};
-	_proto._Group2_i = function () {
+	_proto._Group4_i = function () {
 		var t = new eui.Group();
 		t.percentHeight = 100;
 		t.name = "表情";
@@ -4951,7 +5214,7 @@ window.skins={};
 		t.verticalGap = 12;
 		return t;
 	};
-	_proto._Group3_i = function () {
+	_proto._Group5_i = function () {
 		var t = new eui.Group();
 		t.percentHeight = 100;
 		t.name = "短语";
@@ -4988,7 +5251,7 @@ window.skins={};
 		t.verticalAlign = "contentJustify";
 		return t;
 	};
-	_proto._Group4_i = function () {
+	_proto._Group6_i = function () {
 		var t = new eui.Group();
 		t.percentHeight = 100;
 		t.name = "聊天记录";
@@ -5086,6 +5349,362 @@ window.skins={};
 		return t;
 	};
 	return StickerItemSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/Chat/TalkingViewSkin.exml'] = window.TalkingViewSkin = (function (_super) {
+	__extends(TalkingViewSkin, _super);
+	function TalkingViewSkin() {
+		_super.call(this);
+		this.skinParts = ["leftTalkingAnimation","rightTalkingAnimation","rightSmallAudio","rightMiddleAudio","rightBigAudio","rightTalkingGroup","leftSmallAudio","leftMiddleAudio","leftBigAudio","leftTalkingGroup"];
+		
+		this.height = 32;
+		this.width = 100;
+		this.leftTalkingAnimation_i();
+		this.rightTalkingAnimation_i();
+		this.elementsContent = [this.rightTalkingGroup_i(),this.leftTalkingGroup_i()];
+		
+		eui.Binding.$bindProperties(this, ["leftMiddleAudio"],[0],this._TweenItem1,"target");
+		eui.Binding.$bindProperties(this, [0],[],this._Object1,"alpha");
+		eui.Binding.$bindProperties(this, [1],[],this._Object2,"alpha");
+		eui.Binding.$bindProperties(this, [0],[],this._Object3,"alpha");
+		eui.Binding.$bindProperties(this, ["leftBigAudio"],[0],this._TweenItem2,"target");
+		eui.Binding.$bindProperties(this, [0],[],this._Object4,"alpha");
+		eui.Binding.$bindProperties(this, [1],[],this._Object5,"alpha");
+		eui.Binding.$bindProperties(this, [0],[],this._Object6,"alpha");
+		eui.Binding.$bindProperties(this, ["rightMiddleAudio"],[0],this._TweenItem3,"target");
+		eui.Binding.$bindProperties(this, [0],[],this._Object7,"alpha");
+		eui.Binding.$bindProperties(this, [1],[],this._Object8,"alpha");
+		eui.Binding.$bindProperties(this, [0],[],this._Object9,"alpha");
+		eui.Binding.$bindProperties(this, ["rightBigAudio"],[0],this._TweenItem4,"target");
+		eui.Binding.$bindProperties(this, [0],[],this._Object10,"alpha");
+		eui.Binding.$bindProperties(this, [1],[],this._Object11,"alpha");
+		eui.Binding.$bindProperties(this, [0],[],this._Object12,"alpha");
+	}
+	var _proto = TalkingViewSkin.prototype;
+
+	_proto.leftTalkingAnimation_i = function () {
+		var t = new egret.tween.TweenGroup();
+		this.leftTalkingAnimation = t;
+		t.items = [this._TweenItem1_i(),this._TweenItem2_i()];
+		return t;
+	};
+	_proto._TweenItem1_i = function () {
+		var t = new egret.tween.TweenItem();
+		this._TweenItem1 = t;
+		t.paths = [this._Set1_i(),this._Wait1_i(),this._Set2_i(),this._Wait2_i(),this._Set3_i()];
+		return t;
+	};
+	_proto._Set1_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object1_i();
+		return t;
+	};
+	_proto._Object1_i = function () {
+		var t = {};
+		this._Object1 = t;
+		return t;
+	};
+	_proto._Wait1_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 500;
+		return t;
+	};
+	_proto._Set2_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object2_i();
+		return t;
+	};
+	_proto._Object2_i = function () {
+		var t = {};
+		this._Object2 = t;
+		return t;
+	};
+	_proto._Wait2_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 1000;
+		return t;
+	};
+	_proto._Set3_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object3_i();
+		return t;
+	};
+	_proto._Object3_i = function () {
+		var t = {};
+		this._Object3 = t;
+		return t;
+	};
+	_proto._TweenItem2_i = function () {
+		var t = new egret.tween.TweenItem();
+		this._TweenItem2 = t;
+		t.paths = [this._Set4_i(),this._Wait3_i(),this._Set5_i(),this._Wait4_i(),this._Set6_i()];
+		return t;
+	};
+	_proto._Set4_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object4_i();
+		return t;
+	};
+	_proto._Object4_i = function () {
+		var t = {};
+		this._Object4 = t;
+		return t;
+	};
+	_proto._Wait3_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 1000;
+		return t;
+	};
+	_proto._Set5_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object5_i();
+		return t;
+	};
+	_proto._Object5_i = function () {
+		var t = {};
+		this._Object5 = t;
+		return t;
+	};
+	_proto._Wait4_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 500;
+		return t;
+	};
+	_proto._Set6_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object6_i();
+		return t;
+	};
+	_proto._Object6_i = function () {
+		var t = {};
+		this._Object6 = t;
+		return t;
+	};
+	_proto.rightTalkingAnimation_i = function () {
+		var t = new egret.tween.TweenGroup();
+		this.rightTalkingAnimation = t;
+		t.items = [this._TweenItem3_i(),this._TweenItem4_i()];
+		return t;
+	};
+	_proto._TweenItem3_i = function () {
+		var t = new egret.tween.TweenItem();
+		this._TweenItem3 = t;
+		t.paths = [this._Set7_i(),this._Wait5_i(),this._Set8_i(),this._Wait6_i(),this._Set9_i()];
+		return t;
+	};
+	_proto._Set7_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object7_i();
+		return t;
+	};
+	_proto._Object7_i = function () {
+		var t = {};
+		this._Object7 = t;
+		return t;
+	};
+	_proto._Wait5_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 500;
+		return t;
+	};
+	_proto._Set8_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object8_i();
+		return t;
+	};
+	_proto._Object8_i = function () {
+		var t = {};
+		this._Object8 = t;
+		return t;
+	};
+	_proto._Wait6_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 1000;
+		return t;
+	};
+	_proto._Set9_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object9_i();
+		return t;
+	};
+	_proto._Object9_i = function () {
+		var t = {};
+		this._Object9 = t;
+		return t;
+	};
+	_proto._TweenItem4_i = function () {
+		var t = new egret.tween.TweenItem();
+		this._TweenItem4 = t;
+		t.paths = [this._Set10_i(),this._Wait7_i(),this._Set11_i(),this._Wait8_i(),this._Set12_i()];
+		return t;
+	};
+	_proto._Set10_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object10_i();
+		return t;
+	};
+	_proto._Object10_i = function () {
+		var t = {};
+		this._Object10 = t;
+		return t;
+	};
+	_proto._Wait7_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 1000;
+		return t;
+	};
+	_proto._Set11_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object11_i();
+		return t;
+	};
+	_proto._Object11_i = function () {
+		var t = {};
+		this._Object11 = t;
+		return t;
+	};
+	_proto._Wait8_i = function () {
+		var t = new egret.tween.Wait();
+		t.duration = 500;
+		return t;
+	};
+	_proto._Set12_i = function () {
+		var t = new egret.tween.Set();
+		t.props = this._Object12_i();
+		return t;
+	};
+	_proto._Object12_i = function () {
+		var t = {};
+		this._Object12 = t;
+		return t;
+	};
+	_proto.rightTalkingGroup_i = function () {
+		var t = new eui.Group();
+		this.rightTalkingGroup = t;
+		t.height = 32;
+		t.visible = false;
+		t.width = 100;
+		t.x = 0;
+		t.y = 0;
+		t.elementsContent = [this._Rect1_i(),this._Label1_i(),this.rightSmallAudio_i(),this.rightMiddleAudio_i(),this.rightBigAudio_i()];
+		return t;
+	};
+	_proto._Rect1_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 10;
+		t.ellipseWidth = 10;
+		t.fillColor = 0x71FF55;
+		t.percentHeight = 100;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Label1_i = function () {
+		var t = new eui.Label();
+		t.right = 25;
+		t.size = 18;
+		t.text = "正在说话";
+		t.textColor = 0x012220;
+		t.verticalCenter = 0;
+		return t;
+	};
+	_proto.rightSmallAudio_i = function () {
+		var t = new eui.Image();
+		this.rightSmallAudio = t;
+		t.height = 7;
+		t.right = 6;
+		t.source = "icon_audio_small_left_png";
+		t.verticalCenter = 0;
+		t.width = 4;
+		return t;
+	};
+	_proto.rightMiddleAudio_i = function () {
+		var t = new eui.Image();
+		this.rightMiddleAudio = t;
+		t.height = 12;
+		t.right = 12;
+		t.source = "icon_audio_middle_left_png";
+		t.verticalCenter = 0;
+		t.width = 4;
+		return t;
+	};
+	_proto.rightBigAudio_i = function () {
+		var t = new eui.Image();
+		this.rightBigAudio = t;
+		t.height = 16;
+		t.right = 18;
+		t.source = "icon_audio_big_left_png";
+		t.verticalCenter = 0;
+		t.width = 5;
+		return t;
+	};
+	_proto.leftTalkingGroup_i = function () {
+		var t = new eui.Group();
+		this.leftTalkingGroup = t;
+		t.height = 32;
+		t.visible = false;
+		t.width = 100;
+		t.x = 0;
+		t.y = 0;
+		t.elementsContent = [this._Rect2_i(),this._Label2_i(),this.leftSmallAudio_i(),this.leftMiddleAudio_i(),this.leftBigAudio_i()];
+		return t;
+	};
+	_proto._Rect2_i = function () {
+		var t = new eui.Rect();
+		t.ellipseHeight = 10;
+		t.ellipseWidth = 10;
+		t.fillColor = 0x71FF55;
+		t.percentHeight = 100;
+		t.horizontalCenter = 0;
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	_proto._Label2_i = function () {
+		var t = new eui.Label();
+		t.size = 18;
+		t.text = "正在说话";
+		t.textColor = 0x012220;
+		t.verticalCenter = 0;
+		t.x = 25;
+		return t;
+	};
+	_proto.leftSmallAudio_i = function () {
+		var t = new eui.Image();
+		this.leftSmallAudio = t;
+		t.height = 7;
+		t.source = "icon_audio_small_right_png";
+		t.verticalCenter = 0;
+		t.width = 4;
+		t.x = 6;
+		return t;
+	};
+	_proto.leftMiddleAudio_i = function () {
+		var t = new eui.Image();
+		this.leftMiddleAudio = t;
+		t.height = 12;
+		t.source = "icon_audio_middle_right_png";
+		t.verticalCenter = 0;
+		t.width = 4;
+		t.x = 12;
+		return t;
+	};
+	_proto.leftBigAudio_i = function () {
+		var t = new eui.Image();
+		this.leftBigAudio = t;
+		t.height = 16;
+		t.source = "icon_audio_big_right_png";
+		t.verticalCenter = 0;
+		t.width = 5;
+		t.x = 18;
+		return t;
+	};
+	return TalkingViewSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/InsuranceView/CountdownProgressSkin.exml'] = window.CountdownProgressSkin = (function (_super) {
 	__extends(CountdownProgressSkin, _super);
 	function CountdownProgressSkin() {
