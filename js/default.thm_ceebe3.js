@@ -708,6 +708,104 @@ window.skins=window.skins||{};
 		return t;
 	};
 	return RaiseSliderSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/AutonCheckOrFoldButtonSkin.exml'] = window.AutonCheckOrFoldButtonSkin = (function (_super) {
+	__extends(AutonCheckOrFoldButtonSkin, _super);
+	function AutonCheckOrFoldButtonSkin() {
+		_super.call(this);
+		this.skinParts = [];
+		
+		this.height = 126;
+		this.width = 122;
+		this.elementsContent = [this._Image1_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+				])
+			,
+			new eui.State ("disabled",
+				[
+				])
+			,
+			new eui.State ("upAndSelected",
+				[
+					new eui.SetProperty("_Image1","source","btn_check_or_fold_selected_png")
+				])
+			,
+			new eui.State ("downAndSelected",
+				[
+				])
+			,
+			new eui.State ("disabledAndSelected",
+				[
+				])
+		];
+	}
+	var _proto = AutonCheckOrFoldButtonSkin.prototype;
+
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		this._Image1 = t;
+		t.percentHeight = 100;
+		t.source = "btn_check_or_fold_unselect_png";
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	return AutonCheckOrFoldButtonSkin;
+})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/AutoCheckButtonSkin.exml'] = window.AutoCheckButtonSkin = (function (_super) {
+	__extends(AutoCheckButtonSkin, _super);
+	function AutoCheckButtonSkin() {
+		_super.call(this);
+		this.skinParts = [];
+		
+		this.height = 126;
+		this.width = 122;
+		this.elementsContent = [this._Image1_i()];
+		this.states = [
+			new eui.State ("up",
+				[
+				])
+			,
+			new eui.State ("down",
+				[
+				])
+			,
+			new eui.State ("disabled",
+				[
+				])
+			,
+			new eui.State ("upAndSelected",
+				[
+					new eui.SetProperty("_Image1","source","btn_check_auto_selected_png")
+				])
+			,
+			new eui.State ("downAndSelected",
+				[
+				])
+			,
+			new eui.State ("disabledAndSelected",
+				[
+				])
+		];
+	}
+	var _proto = AutoCheckButtonSkin.prototype;
+
+	_proto._Image1_i = function () {
+		var t = new eui.Image();
+		this._Image1 = t;
+		t.percentHeight = 100;
+		t.source = "btn_check_auto_unselect_png";
+		t.percentWidth = 100;
+		t.x = 0;
+		t.y = 0;
+		return t;
+	};
+	return AutoCheckButtonSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/CallButtonSkin.exml'] = window.CallButtonSkin = (function (_super) {
 	__extends(CallButtonSkin, _super);
 	function CallButtonSkin() {
@@ -874,104 +972,6 @@ window.skins=window.skins||{};
 		return t;
 	};
 	return ShortcutRaiseButtonSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/AutonCheckOrFoldButtonSkin.exml'] = window.AutonCheckOrFoldButtonSkin = (function (_super) {
-	__extends(AutonCheckOrFoldButtonSkin, _super);
-	function AutonCheckOrFoldButtonSkin() {
-		_super.call(this);
-		this.skinParts = [];
-		
-		this.height = 126;
-		this.width = 122;
-		this.elementsContent = [this._Image1_i()];
-		this.states = [
-			new eui.State ("up",
-				[
-				])
-			,
-			new eui.State ("down",
-				[
-				])
-			,
-			new eui.State ("disabled",
-				[
-				])
-			,
-			new eui.State ("upAndSelected",
-				[
-					new eui.SetProperty("_Image1","source","btn_check_or_fold_selected_png")
-				])
-			,
-			new eui.State ("downAndSelected",
-				[
-				])
-			,
-			new eui.State ("disabledAndSelected",
-				[
-				])
-		];
-	}
-	var _proto = AutonCheckOrFoldButtonSkin.prototype;
-
-	_proto._Image1_i = function () {
-		var t = new eui.Image();
-		this._Image1 = t;
-		t.percentHeight = 100;
-		t.source = "btn_check_or_fold_unselect_png";
-		t.percentWidth = 100;
-		t.x = 0;
-		t.y = 0;
-		return t;
-	};
-	return AutonCheckOrFoldButtonSkin;
-})(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/AutoCheckButtonSkin.exml'] = window.AutoCheckButtonSkin = (function (_super) {
-	__extends(AutoCheckButtonSkin, _super);
-	function AutoCheckButtonSkin() {
-		_super.call(this);
-		this.skinParts = [];
-		
-		this.height = 126;
-		this.width = 122;
-		this.elementsContent = [this._Image1_i()];
-		this.states = [
-			new eui.State ("up",
-				[
-				])
-			,
-			new eui.State ("down",
-				[
-				])
-			,
-			new eui.State ("disabled",
-				[
-				])
-			,
-			new eui.State ("upAndSelected",
-				[
-					new eui.SetProperty("_Image1","source","btn_check_auto_selected_png")
-				])
-			,
-			new eui.State ("downAndSelected",
-				[
-				])
-			,
-			new eui.State ("disabledAndSelected",
-				[
-				])
-		];
-	}
-	var _proto = AutoCheckButtonSkin.prototype;
-
-	_proto._Image1_i = function () {
-		var t = new eui.Image();
-		this._Image1 = t;
-		t.percentHeight = 100;
-		t.source = "btn_check_auto_unselect_png";
-		t.percentWidth = 100;
-		t.x = 0;
-		t.y = 0;
-		return t;
-	};
-	return AutoCheckButtonSkin;
 })(eui.Skin);generateEUI.paths['resource/eui_skins/GameSkins/View/PlayGameButton/PlayGameButtonGroupSkin.exml'] = window.PlayGameButtonGroupSkin = (function (_super) {
 	__extends(PlayGameButtonGroupSkin, _super);
 	var PlayGameButtonGroupSkin$Skin1 = 	(function (_super) {
@@ -1157,14 +1157,50 @@ window.skins=window.skins||{};
 
 	function PlayGameButtonGroupSkin() {
 		_super.call(this);
-		this.skinParts = ["foldButton","checkButton","callButton","raiseButton","allInButton","quickRaiseButton","firstShortcutButton","secondShortcutButton","thirdShortcutButton","fourthShortcutButton","shortcutGroup","switchGroup","autoCheckOrFoldButton","autoCheckButton","autoGroup"];
+		this.skinParts = ["autoCheckOrFoldButton","autoCheckButton","autoGroup","foldButton","checkButton","callButton","raiseButton","allInButton","quickRaiseButton","firstShortcutButton","secondShortcutButton","thirdShortcutButton","fourthShortcutButton","shortcutGroup","switchGroup"];
 		
 		this.height = 320;
 		this.width = 750;
-		this.elementsContent = [this.switchGroup_i(),this.autoGroup_i()];
+		this.elementsContent = [this.autoGroup_i(),this.switchGroup_i()];
 	}
 	var _proto = PlayGameButtonGroupSkin.prototype;
 
+	_proto.autoGroup_i = function () {
+		var t = new eui.Group();
+		this.autoGroup = t;
+		t.height = 320;
+		t.horizontalCenter = 0;
+		t.verticalCenter = 0;
+		t.width = 750;
+		t.elementsContent = [this.autoCheckOrFoldButton_i(),this.autoCheckButton_i()];
+		return t;
+	};
+	_proto.autoCheckOrFoldButton_i = function () {
+		var t = new eui.CheckBox();
+		this.autoCheckOrFoldButton = t;
+		t.height = 126;
+		t.label = "CheckBox";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "AutonCheckOrFoldButtonSkin";
+		t.width = 122;
+		t.x = 120;
+		t.y = 170;
+		return t;
+	};
+	_proto.autoCheckButton_i = function () {
+		var t = new eui.CheckBox();
+		this.autoCheckButton = t;
+		t.height = 126;
+		t.label = "CheckBox";
+		t.scaleX = 1;
+		t.scaleY = 1;
+		t.skinName = "AutoCheckButtonSkin";
+		t.width = 122;
+		t.x = 508;
+		t.y = 170;
+		return t;
+	};
 	_proto.switchGroup_i = function () {
 		var t = new eui.Group();
 		this.switchGroup = t;
@@ -1319,42 +1355,6 @@ window.skins=window.skins||{};
 		t.width = 84;
 		t.x = 505;
 		t.y = -1;
-		return t;
-	};
-	_proto.autoGroup_i = function () {
-		var t = new eui.Group();
-		this.autoGroup = t;
-		t.height = 320;
-		t.horizontalCenter = 0;
-		t.verticalCenter = 0;
-		t.width = 750;
-		t.elementsContent = [this.autoCheckOrFoldButton_i(),this.autoCheckButton_i()];
-		return t;
-	};
-	_proto.autoCheckOrFoldButton_i = function () {
-		var t = new eui.CheckBox();
-		this.autoCheckOrFoldButton = t;
-		t.height = 126;
-		t.label = "CheckBox";
-		t.scaleX = 1;
-		t.scaleY = 1;
-		t.skinName = "AutonCheckOrFoldButtonSkin";
-		t.width = 122;
-		t.x = 120;
-		t.y = 170;
-		return t;
-	};
-	_proto.autoCheckButton_i = function () {
-		var t = new eui.CheckBox();
-		this.autoCheckButton = t;
-		t.height = 126;
-		t.label = "CheckBox";
-		t.scaleX = 1;
-		t.scaleY = 1;
-		t.skinName = "AutoCheckButtonSkin";
-		t.width = 122;
-		t.x = 508;
-		t.y = 170;
 		return t;
 	};
 	return PlayGameButtonGroupSkin;
